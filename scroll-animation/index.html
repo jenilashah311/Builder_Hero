@@ -206,11 +206,9 @@
     <!-- Pinned Container: Full screen video -->
     <div id="hero-pinned-container" class="sticky top-0 w-full overflow-hidden flex flex-col items-center justify-start select-none h-[100vh]">
       
-      <!-- Video Background -->
+      <!-- Image Sequence Canvas -->
       <div class="absolute inset-0 z-0 bg-slate-950 overflow-hidden">
-        <video id="v0" tabindex="0" preload="auto" muted playsinline class="w-full h-full object-cover object-center transform origin-center select-none will-change-transform opacity-90">
-            <source src="video.mp4" type="video/mp4">
-        </video>
+        <canvas id="hero-canvas" class="w-full h-full object-cover object-center transform origin-center select-none will-change-transform opacity-90"></canvas>
         <!-- Heavy Vignette to make text readable at top and blend -->
         <div class="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-transparent to-slate-950/50 pointer-events-none"></div>
       </div>
@@ -772,15 +770,15 @@
 
 
 
-      // B. Video scales down gracefully into framed card
-      heroTimeline.fromTo('#v0', 
+      // B. Canvas scales down gracefully into framed card
+      heroTimeline.fromTo('#hero-canvas', 
         { scale: 1.15 },
         { scale: 1.0, ease: 'none', duration: 1 },
         0
       );
 
-      // B. Video scales slightly inside its full-bleed container for a parallax feel
-      heroTimeline.fromTo('#v0', 
+      // B. Canvas scales slightly inside its full-bleed container for a parallax feel
+      heroTimeline.fromTo('#hero-canvas', 
         { scale: 1.10 },
         { scale: 1.0, ease: 'none', duration: 1 },
         0

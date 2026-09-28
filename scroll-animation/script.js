@@ -1,35 +1,60 @@
-const video = document.getElementById('v0');
+const canvas = document.getElementById('hero-canvas');
+const context = canvas.getContext('2d');
 
-let isVideoLoaded = false;
-let targetTime = 0;
-let currentTime = 0;
+const frameCount = 240;
+const images = [];
+let imagesLoaded = 0;
+let isFullyLoaded = false;
+let currentFrameIndex = 0;
 
-// Ensure video loads and works on mobile
-video.pause();
+// Set canvas dimensions
+canvas.width = 1920;
+canvas.height = 1080;
 
-function checkVideoLoaded() {
-    if (video.readyState >= 1 && video.duration > 0) {
-        isVideoLoaded = true;
+// Preload images
+for (let i = 0; i < frameCount; i++) {
+    const img = new Image();
+    const paddedIndex = i.toString().padStart(4, '0');
+    // Important: Path must be relative to root or base so Vite serves it from public folder correctly
+    img.src = `/frames/frame_${paddedIndex}.jpg`;
+    img.onload = () => {
+        imagesLoaded++;
+        if (imagesLoaded === 1) {
+            // Draw first frame as soon as it loads
+            renderFrame(0);
+        }
+        if (imagesLoaded === frameCount) {
+            isFullyLoaded = true;
+        }
+    };
+    images.push(img);
+}
+
+function renderFrame(index) {
+    if (images[index] && images[index].complete) {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Draw image covering the canvas (simulate object-fit: cover)
+        const img = images[index];
+        const hRatio = canvas.width / img.width;
+        const vRatio = canvas.height / img.height;
+        const ratio = Math.max(hRatio, vRatio);
+        const centerShift_x = (canvas.width - img.width * ratio) / 2;
+        const centerShift_y = (canvas.height - img.height * ratio) / 2;  
+        
+        context.drawImage(img, 0, 0, img.width, img.height,
+                          centerShift_x, centerShift_y, img.width * ratio, img.height * ratio);
     }
 }
 
-video.addEventListener('loadedmetadata', checkVideoLoaded);
-video.addEventListener('canplay', checkVideoLoaded);
-video.addEventListener('loadeddata', checkVideoLoaded);
-
-// Force load for iOS Safari
-video.load();
-checkVideoLoaded();
-
-// Calculate scroll progress and update target time
-// Calculate scroll progress based on the hero-scroll-track
+// Scroll logic
 const scrollTrack = document.getElementById('hero-scroll-track');
-const pinnedContainer = document.getElementById('hero-pinned-container');
 const mainHeader = document.getElementById('main-header');
+let targetFrame = 0;
+let currentInterpolatedFrame = 0;
 
 window.addEventListener('scroll', () => {
     // Header transparent/solid logic
-    // Calculate trigger point based on when the hero section animation ends
     const heroSection = document.getElementById('hero-section');
     const triggerPoint = heroSection ? (heroSection.offsetHeight - 100) : 50;
 
@@ -41,14 +66,9 @@ window.addEventListener('scroll', () => {
         mainHeader.classList.remove('bg-white/95', 'backdrop-blur-md', 'text-slate-900', 'border-slate-200/80', 'shadow-sm');
     }
 
-    if (!isVideoLoaded || !scrollTrack) return;
+    if (!scrollTrack) return;
     
-    // The hero section is pinned until we scroll past hero-scroll-track
-    // Total scrollable distance for the hero is the height of the track
     const trackHeight = scrollTrack.offsetHeight;
-    
-    // Current scroll position within the hero section
-    // Since hero is at the top, scrollY is roughly the progress
     let scrollPosition = window.scrollY;
     
     // Clamp the value between 0 and trackHeight
@@ -56,23 +76,22 @@ window.addEventListener('scroll', () => {
     
     const scrollFraction = scrollPosition / trackHeight;
     
-    const videoDuration = video.duration || 0;
-    targetTime = videoDuration * scrollFraction;
+    // Map scroll fraction to frame index
+    targetFrame = scrollFraction * (frameCount - 1);
 });
 
-// Use requestAnimationFrame for smooth scrubbing
-let lastSetTime = -1;
+// Render loop for smooth frame interpolation
 function renderLoop() {
-    if (isVideoLoaded && !isNaN(targetTime)) {
-        // Much faster easing to reach target quicker and stop updating
-        currentTime += (targetTime - currentTime) * 0.5;
-        
-        // Only update if there is a significant difference (prevents micro-stutter and decoder overload)
-        if (Math.abs(currentTime - lastSetTime) > 0.04) {
-            video.currentTime = currentTime;
-            lastSetTime = currentTime;
-        }
+    // Smooth easing
+    currentInterpolatedFrame += (targetFrame - currentInterpolatedFrame) * 0.2;
+    
+    const nextFrameIndex = Math.round(currentInterpolatedFrame);
+    
+    if (nextFrameIndex !== currentFrameIndex) {
+        currentFrameIndex = nextFrameIndex;
+        renderFrame(currentFrameIndex);
     }
+    
     requestAnimationFrame(renderLoop);
 }
 
