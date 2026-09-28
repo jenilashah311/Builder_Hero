@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Builder Portal - Ajay Shah & Associates</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: { 50: '#eff6ff', 100: '#dbeafe', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a', 950: '#0f172a' }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    /* Custom Utilities */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    
+    @media print {
+      body * { visibility: hidden; }
+      #letterhead-modal, #letterhead-modal * { visibility: visible; }
+      #letterhead-modal {
+        position: absolute; left: 0; top: 0; width: 100%; height: 100%;
+        background: white !important; margin: 0; padding: 0; border: none;
+      }
+      #letterhead-modal button, #letterhead-modal .print-hide { display: none !important; }
+    }
+  </style>
+</head>
+<body class="h-screen overflow-hidden bg-no-repeat bg-[length:100%_100%]" style="background-image: url('family_bg.jpg');">
+  <!-- MODAL: SECURE PORTAL AUTHENTICATION (Password Protected)                  -->
+  <!-- ========================================================================= -->
+  <div id="portal-auth-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/20 no-print">
+    <div class="relative w-full max-w-sm bg-white/10 rounded-2xl shadow-2xl p-6 sm:p-7 border border-white/20">
+      
+      <button onclick="closeAuthModal()" class="absolute top-4 right-4 p-1.5 text-white hover:text-slate-200 rounded-lg bg-black/20">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-10 h-10 rounded-xl bg-[#C49A6C] text-white border border-transparent flex items-center justify-center shadow-sm">
+          <i data-lucide="lock" class="w-5 h-5 text-white"></i>
+        </div>
+        <div>
+          <h3 class="text-base font-bold text-white drop-shadow-md">Builder Access</h3>
+          <div class="text-xs text-white/90 drop-shadow-sm font-medium">Ajay Shah &amp; Associates</div>
+        </div>
+      </div>
+
+      <form onsubmit="verifyPortalPin(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-white mb-1.5 drop-shadow-sm tracking-wide">
+            Password
+          </label>
+          <div class="relative">
+            <input type="password" id="portal-pin-input" placeholder="Enter password" autocomplete="current-password" class="w-full px-3.5 py-2.5 pr-10 bg-black/20 border border-white/30 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#C49A6C] focus:bg-black/40 text-white placeholder-white/70 font-bold backdrop-blur-sm" />
+            <button type="button" onclick="togglePasswordVisibility()" class="absolute right-3 top-2.5 text-white hover:text-slate-200 cursor-pointer bg-white/20 rounded px-1 backdrop-blur-sm" title="Toggle password visibility">
+              <i id="toggle-pwd-icon" data-lucide="eye" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+
+        <div id="auth-error-msg" class="hidden text-xs text-red-50 font-semibold flex items-center gap-1.5 bg-red-600/80 p-2.5 rounded-lg border border-red-400/50 backdrop-blur-sm">
+          <i data-lucide="alert-circle" class="w-4 h-4"></i>
+          <span>Incorrect password. Access denied.</span>
+        </div>
+
+        <button type="submit" class="w-full py-2.5 bg-[#C49A6C] hover:bg-[#A67C52] text-white rounded-xl text-xs font-bold uppercase tracking-wider shadow-sm transition-colors flex items-center justify-center gap-2 cursor-pointer">
+          <i data-lucide="unlock" class="w-4 h-4"></i>
+          <span>Login to Portal</span>
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: BUILDER & CONTRACTOR DASHBOARD (Full Suite in 100% English)        -->
+  <!-- ========================================================================= -->
+  <div id="portal-dashboard-modal" class="fixed inset-0 z-50 hidden flex flex-col md:flex-row bg-transparent no-print overflow-hidden">
+    
+    <!-- Left Sidebar (Desktop) -->
+    <aside class="hidden md:flex w-[280px] flex-col bg-white/90 backdrop-blur-xl border-r border-white/20 shadow-xl shrink-0 h-full relative z-10">
+      <div class="p-6 border-b border-slate-200/50 text-center">
+        <div class="aspect-square rounded-2xl overflow-hidden mb-4 border-[3px] border-white shadow-sm mx-auto w-32 h-32">
+          <img src="dada_photo.jpg" alt="Er. Ajay H. Shah & Son" class="w-full h-full object-cover" />
+        </div>
+        <h2 class="text-[17px] font-serif font-black text-slate-900 leading-tight mb-1">Ajay Shah & Associates</h2>
+        <div class="text-[10px] text-slate-500 font-mono mb-3">Er. Ajay H. Shah (B.E. Civil)</div>
+        <span class="px-2.5 py-1 rounded text-[10px] font-mono bg-[#F5E6D3] text-[#8C6239] font-bold uppercase tracking-widest">Verified Session</span>
+      </div>
+      
+      <div class="flex-1 overflow-y-auto p-4 space-y-1.5">
+        <div class="text-[10px] font-mono text-slate-400 uppercase font-bold tracking-widest pl-3 mb-3 mt-2">Portal Menu</div>
+        <button onclick="switchPortalTab('quotations')" id="btn-tab-quotations" class="portal-nav-btn w-full text-left px-4 py-3 rounded-xl bg-[#C49A6C] text-white font-bold transition-all flex items-center gap-3 shadow-xs">
+          <i data-lucide="file-text" class="w-4 h-4"></i> Quotations
+        </button>
+        <button onclick="switchPortalTab('vendors')" id="btn-tab-vendors" class="portal-nav-btn w-full text-left px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 hover:text-slate-900 font-semibold transition-all flex items-center gap-3">
+          <i data-lucide="truck" class="w-4 h-4"></i> Vendors & Materials
+        </button>
+        <button onclick="switchPortalTab('team')" id="btn-tab-team" class="portal-nav-btn w-full text-left px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 hover:text-slate-900 font-semibold transition-all flex items-center gap-3">
+          <i data-lucide="users" class="w-4 h-4"></i> Site Team
+        </button>
+        <button onclick="switchPortalTab('projects')" id="btn-tab-projects" class="portal-nav-btn w-full text-left px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 hover:text-slate-900 font-semibold transition-all flex items-center gap-3">
+          <i data-lucide="building" class="w-4 h-4"></i> Projects & Budgets
+        </button>
+      </div>
+
+      <div class="p-4 border-t border-slate-200/50 bg-white/50">
+        <button onclick="logoutPortal()" class="w-full px-4 py-2.5 bg-white border border-slate-200 hover:bg-slate-100 hover:border-slate-300 text-slate-700 text-xs font-bold rounded-xl flex items-center justify-center gap-2 transition-all shadow-sm cursor-pointer">
+          <i data-lucide="log-out" class="w-4 h-4 text-red-500"></i> Lock & Exit Portal
+        </button>
+      </div>
+    </aside>
+
+    <!-- Mobile Header -->
+    <header class="md:hidden bg-white/90 backdrop-blur-xl border-b border-white/20 shadow-xs shrink-0 flex items-center justify-between px-4 py-3">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-full overflow-hidden border border-slate-200 shrink-0">
+          <img src="dada_photo.jpg" alt="Family" class="w-full h-full object-cover" />
+        </div>
+        <div>
+          <div class="text-sm font-bold text-slate-900 leading-tight">Ajay Shah & Assoc.</div>
+          <div class="text-[10px] text-slate-500 font-mono">Builder Portal</div>
+        </div>
+      </div>
+      <button onclick="logoutPortal()" class="p-2.5 text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-colors cursor-pointer border border-transparent">
+        <i data-lucide="log-out" class="w-4 h-4 text-red-500"></i>
+      </button>
+    </header>
+
+    <!-- Mobile Tabs -->
+    <div class="md:hidden bg-white/90 backdrop-blur-xl border-b border-white/20 px-3 py-2 flex gap-1.5 overflow-x-auto text-xs shrink-0 no-scrollbar">
+      <button onclick="switchPortalTab('quotations')" id="mob-btn-tab-quotations" class="mob-portal-nav-btn px-3 py-2 rounded-lg bg-[#C49A6C] text-white font-bold whitespace-nowrap text-xs transition-all shadow-xs">Quotations</button>
+      <button onclick="switchPortalTab('vendors')" id="mob-btn-tab-vendors" class="mob-portal-nav-btn px-3 py-2 rounded-lg bg-white/50 text-slate-600 font-medium whitespace-nowrap text-xs transition-all border border-slate-200">Vendors</button>
+      <button onclick="switchPortalTab('team')" id="mob-btn-tab-team" class="mob-portal-nav-btn px-3 py-2 rounded-lg bg-white/50 text-slate-600 font-medium whitespace-nowrap text-xs transition-all border border-slate-200">Site Team</button>
+      <button onclick="switchPortalTab('projects')" id="mob-btn-tab-projects" class="mob-portal-nav-btn px-3 py-2 rounded-lg bg-white/50 text-slate-600 font-medium whitespace-nowrap text-xs transition-all border border-slate-200">Projects</button>
+    </div>
+
+    <!-- Dashboard Main Content Area -->
+    <main class="flex-1 h-full overflow-y-auto bg-slate-900/40 backdrop-blur-sm relative z-0">
+      <div class="px-4 sm:px-6 lg:px-8 py-6 max-w-6xl mx-auto pb-32">
+      
+      <!-- TAB 1: QUOTATIONS -->
+      <div id="portal-quotations-tab" class="portal-tab-content space-y-5 max-w-7xl mx-auto">
+        <!-- Quick Stats Banner -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-xs">
+            <div class="text-[10px] font-mono uppercase text-slate-500 font-semibold">Total Quotations</div>
+            <div id="stat-quotes-count" class="text-lg font-bold text-slate-900 mt-0.5">1</div>
+          </div>
+          <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-xs">
+            <div class="text-[10px] font-mono uppercase text-slate-500 font-semibold">Total Value Quoted</div>
+            <div id="stat-quotes-value" class="text-lg font-bold text-[#8C6239] mt-0.5 font-mono">₹ 1.30 Cr</div>
+          </div>
+          <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-xs">
+            <div class="text-[10px] font-mono uppercase text-slate-500 font-semibold">Under Sent / Active</div>
+            <div id="stat-quotes-sent" class="text-lg font-bold text-[#C49A6C] mt-0.5 font-mono">₹ 1.30 Cr</div>
+          </div>
+          <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-xs">
+            <div class="text-[10px] font-mono uppercase text-slate-500 font-semibold">Contractor Legacy</div>
+            <div class="text-lg font-bold text-[#C49A6C] mt-0.5">30+ Years</div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
+          <div>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900">Quotation Management &amp; Estimates</h3>
+            <p class="text-xs text-slate-500 mt-0.5">Write comprehensive quotations, edit line items &amp; rates, customize letterhead notes &amp; scope content, download PDF, or WhatsApp directly.</p>
+          </div>
+          <div class="flex items-center gap-2 self-start sm:self-auto">
+            <button onclick="openCreateQuotationModal()" class="px-4 py-2.5 bg-[#C49A6C] hover:bg-[#A67C52] text-white rounded-xl text-xs font-bold flex items-center gap-2 shadow-xs transition-colors cursor-pointer">
+              <i data-lucide="plus-circle" class="w-4 h-4"></i>
+              <span>+ Create New Quotation</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Search and Filter Bar -->
+        <div class="flex flex-wrap items-center justify-between gap-3 bg-white p-3 rounded-xl border border-slate-200 shadow-xs">
+          <div class="flex items-center gap-2 flex-1 min-w-[200px]">
+            <i data-lucide="search" class="w-4 h-4 text-slate-400"></i>
+            <input type="text" id="quote-search-input" oninput="filterQuotations()" placeholder="Search by client, company, location, or ref no..." class="w-full text-xs bg-transparent focus:outline-none" />
+          </div>
+          <div class="flex items-center gap-2 text-xs">
+            <span class="text-slate-500 font-mono text-[11px]">Status:</span>
+            <select id="quote-status-filter" onchange="filterQuotations()" class="px-2.5 py-1.5 border border-slate-200 rounded-lg text-xs font-medium bg-slate-50 focus:outline-none">
+              <option value="All">All Statuses</option>
+              <option value="Sent">Sent</option>
+              <option value="Draft">Draft</option>
+              <option value="Approved">Approved</option>
+              <option value="Negotiation">Negotiation</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
+          <!-- Desktop Table (hidden on small mobile screens) -->
+          <div class="hidden sm:block overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-50 text-slate-600 font-mono text-[11px] uppercase border-b border-slate-200">
+                <tr>
+                  <th class="py-3 px-3">Ref &amp; Date</th>
+                  <th class="py-3 px-3">Client &amp; Company</th>
+                  <th class="py-3 px-3 text-right">Civil Scope Items</th>
+                  <th class="py-3 px-3 text-right">Total (Incl. GST)</th>
+                  <th class="py-3 px-3 text-center">Status</th>
+                  <th class="py-3 px-3 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="portal-quotes-tbody">
+                <!-- Injected via portal.js -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Mobile Cards Container (shown only on small mobile screens) -->
+          <div id="portal-quotes-mobile-list" class="sm:hidden divide-y divide-slate-100 p-2 space-y-2">
+            <!-- Injected via portal.js -->
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: VENDORS -->
+      <div id="portal-vendors-tab" class="portal-tab-content hidden space-y-5 max-w-7xl mx-auto">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
+          <div>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900">Vendors &amp; Material Suppliers</h3>
+            <p class="text-xs text-slate-500 mt-0.5">Manage Ready Mix Concrete, TMT Steel, Sand, Fabrication, and Shuttering contractors with direct contact links and dues.</p>
+          </div>
+          <button onclick="openAddVendorModal()" class="px-4 py-2.5 bg-[#C49A6C] hover:bg-[#A67C52] text-white rounded-xl text-xs font-bold flex items-center gap-2 shadow-xs self-start sm:self-auto transition-colors cursor-pointer">
+            <i data-lucide="user-plus" class="w-4 h-4"></i>
+            <span>+ Add Vendor</span>
+          </button>
+        </div>
+
+        <!-- Vendor Category Filters -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-1 text-xs">
+          <button onclick="filterVendorsByCategory('All')" class="vendor-filter-pill px-3 py-1.5 rounded-lg bg-[#C49A6C] text-white font-bold whitespace-nowrap" data-category="All">All Categories</button>
+          <button onclick="filterVendorsByCategory('Cement & RMC')" class="vendor-filter-pill px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 hover:text-slate-900 transition-colors font-medium whitespace-nowrap" data-category="Cement & RMC">Cement &amp; RMC</button>
+          <button onclick="filterVendorsByCategory('TMT Steel')" class="vendor-filter-pill px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 hover:text-slate-900 transition-colors font-medium whitespace-nowrap" data-category="TMT Steel">TMT Steel</button>
+          <button onclick="filterVendorsByCategory('Fabrication')" class="vendor-filter-pill px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 hover:text-slate-900 transition-colors font-medium whitespace-nowrap" data-category="Fabrication">Fabrication</button>
+          <button onclick="filterVendorsByCategory('Shuttering')" class="vendor-filter-pill px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 hover:text-slate-900 transition-colors font-medium whitespace-nowrap" data-category="Shuttering">Shuttering</button>
+          <button onclick="filterVendorsByCategory('Sand & Aggregate')" class="vendor-filter-pill px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 hover:text-slate-900 transition-colors font-medium whitespace-nowrap" data-category="Sand & Aggregate">Sand &amp; Kapchi</button>
+          <button onclick="filterVendorsByCategory('Electrical & Plumbing')" class="vendor-filter-pill px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 hover:text-slate-900 transition-colors font-medium whitespace-nowrap" data-category="Electrical & Plumbing">Electrical &amp; Plumbing</button>
+        </div>
+
+        <div id="portal-vendors-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- Injected via portal.js -->
+        </div>
+      </div>
+
+      <!-- TAB 3: SITE TEAM -->
+      <div id="portal-team-tab" class="portal-tab-content hidden space-y-5 max-w-7xl mx-auto">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
+          <div>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900">Site Engineers &amp; Supervisors</h3>
+            <p class="text-xs text-slate-500 mt-0.5">Oversee site civil engineers, mukadams, bar bending gangs, and storekeepers with named assignments, phones, and project locations.</p>
+          </div>
+          <button onclick="openAddTeamModal()" class="px-4 py-2.5 bg-[#C49A6C] hover:bg-[#A67C52] text-white rounded-xl text-xs font-bold flex items-center gap-2 shadow-xs self-start sm:self-auto transition-colors cursor-pointer">
+            <i data-lucide="user-check" class="w-4 h-4"></i>
+            <span>+ Add Site Staff / Engineer</span>
+          </button>
+        </div>
+        <div id="portal-team-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- Injected via portal.js -->
+        </div>
+      </div>
+
+      <!-- TAB 4: PROJECTS -->
+      <div id="portal-projects-tab" class="portal-tab-content hidden space-y-5 max-w-7xl mx-auto">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
+          <div>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900">Active Construction Projects &amp; Budgets</h3>
+            <p class="text-xs text-slate-500 mt-0.5">Track contract valuations, certified disbursements, civil work completion percentages, and assigned site engineers.</p>
+          </div>
+          <button onclick="openAddProjectModal()" class="px-4 py-2.5 bg-[#C49A6C] hover:bg-[#A67C52] text-white rounded-xl text-xs font-bold flex items-center gap-2 shadow-xs self-start sm:self-auto transition-colors cursor-pointer">
+            <i data-lucide="folder-plus" class="w-4 h-4"></i>
+            <span>+ Add New Project</span>
+          </button>
+        </div>
+        <div id="portal-projects-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Injected via portal.js -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: LETTERHEAD PDF PRINT/PREVIEW (Exact WhatsApp Letterhead Replica)   -->
+  <!-- ========================================================================= -->
+  <div id="letterhead-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-2 sm:p-4 bg-slate-950/80 backdrop-blur-xs overflow-y-auto">
+    <div class="relative w-full max-w-4xl bg-white rounded-2xl shadow-2xl my-auto overflow-hidden flex flex-col max-h-[95vh]">
+      
+      <div class="px-6 py-3.5 bg-slate-900 text-white flex items-center justify-between shrink-0 no-print">
+        <div class="flex items-center gap-3">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#E6CBA8]"></span>
+          <span class="text-xs font-mono font-semibold uppercase tracking-wider">Official Quotation Letterhead &middot; Ajay Shah &amp; Associates</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="window.print()" class="px-3.5 py-1.5 bg-[#C49A6C] hover:bg-[#C49A6C] text-white text-xs font-bold rounded-lg flex items-center gap-1.5 shadow-sm">
+            <i data-lucide="printer" class="w-3.5 h-3.5"></i>
+            <span>Print / Save PDF</span>
+          </button>
+          <button onclick="closeLetterheadModal()" class="p-1.5 text-slate-400 hover:text-white rounded-lg">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Printable Area -->
+      <div class="overflow-y-auto p-4 sm:p-8 bg-slate-100 flex justify-center">
+        <div id="printable-letterhead-content" class="w-full max-w-[800px] bg-white p-6 sm:p-10 shadow-md text-black font-sans text-xs sm:text-[13px] leading-relaxed">
+          
+          <!-- Official Letterhead Header (Matched to Sample PDF) -->
+          <div class="border-b-4 border-[#3b5b99] pb-4 mb-6">
+            <div class="flex items-center justify-between gap-4">
+              <div class="flex items-center gap-3">
+                <div class="w-16 h-16 rounded-full border border-[#d4af37] bg-white flex flex-col items-center justify-center p-1 text-center relative">
+                  <span class="text-2xl font-black text-[#d4af37] leading-none tracking-tighter">30</span>
+                  <span class="text-[7px] font-extrabold text-[#d4af37] uppercase tracking-wider mt-0.5">YEARS</span>
+                  <div class="absolute inset-x-0 -bottom-3 text-[5px] font-bold text-[#d4af37] tracking-widest uppercase">EXPERIENCE</div>
+                </div>
+                <div class="ml-2">
+                  <div class="flex items-center gap-2">
+                    <span class="text-4xl font-black text-[#d4af37] font-serif tracking-tighter italic">AS</span>
+                    <span class="text-2xl font-black text-[#3b5b99] tracking-tight">Ajay Shah &amp; Associates</span>
+                  </div>
+                  <div class="text-[10px] font-black text-[#d4af37] tracking-widest uppercase ml-[3.5rem] -mt-1">
+                    ENGINEERS &amp; CONTRACTORS
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-right text-[#3b5b99]">
+                <div class="text-xl font-bold font-sans tracking-wide">Ajay H. Shah</div>
+                <div class="text-sm font-semibold text-right">(B.E.Civil)</div>
+                <div class="text-sm font-bold mt-1">M.: 98246 66003</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- To & Date -->
+          <div class="flex justify-between items-start mb-6">
+            <div class="space-y-0.5">
+              <div class="text-black">To,</div>
+              <div id="letterhead-client" class="text-black">Shri Rajeshbhai Patel,</div>
+              <div id="letterhead-company" class="text-black">The Grand Villa Residence,</div>
+              <div id="letterhead-location" class="text-black">Manjalpur, Vadodara.</div>
+            </div>
+            <div class="text-right font-sans text-sm">
+              <span>Date: </span><span id="letterhead-date">19 / 09 / 2026</span>
+            </div>
+          </div>
+
+          <!-- Subject -->
+          <div class="mb-4">
+            <div id="letterhead-subject" class="font-bold text-black">
+              Subject: Quotation of civil work as per drawings provided.
+            </div>
+          </div>
+
+          <!-- Salutation -->
+          <div class="mb-4 text-[13px] leading-relaxed text-black">
+            <div>Dear Sir,</div>
+            <div class="mt-2" id="letterhead-opening">
+              With reference to all the drawings given by you and as per our discussion, we are pleased to submit our quotation for the civil work of the industrial shed at Por.
+            </div>
+          </div>
+
+          <!-- Table -->
+          <div class="mb-0 border border-[#3b5b99]">
+            <table class="w-full text-center border-collapse text-[13px]">
+              <thead class="bg-[#ddebf7] text-black font-bold border-b border-[#3b5b99]">
+                <tr class="divide-x divide-[#3b5b99]">
+                  <th class="py-2 px-2 w-12 text-center">SR.<br>NO</th>
+                  <th class="py-2 px-3 text-left">ITEM</th>
+                  <th class="py-2 px-3 w-16 text-center">QTY</th>
+                  <th class="py-2 px-3 w-16 text-center">RATE</th>
+                  <th class="py-2 px-3 w-16 text-center">UNIT</th>
+                  <th class="py-2 px-3 w-32 text-center">AMOUNT (Rs.)</th>
+                </tr>
+              </thead>
+              <tbody id="letterhead-items-tbody" class="divide-y divide-[#3b5b99]">
+                <!-- Dynamically populated -->
+              </tbody>
+              <tfoot class="font-bold bg-[#ddebf7]">
+                <tr class="divide-x divide-[#3b5b99] border-t border-[#3b5b99]">
+                  <td colspan="5" class="py-1.5 px-3 text-right uppercase">GST @ 18%:</td>
+                  <td id="letterhead-gst-amount" class="py-1.5 px-3 text-right">19,97,136</td>
+                </tr>
+                <tr class="divide-x divide-[#3b5b99] border-t border-[#3b5b99]">
+                  <td colspan="5" class="py-1.5 px-3 text-right uppercase">TOTAL:</td>
+                  <td id="letterhead-grand-total" class="py-1.5 px-3 text-right">1,30,92,336</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+
+          <!-- Amount in Words -->
+          <div class="px-2 py-1.5 border-x border-b border-[#3b5b99] mb-8 text-[13px] text-black bg-[#f2f6fa]">
+            <span class="italic">Amount in words: </span><span id="letterhead-words" class="italic">Rupees One Crore Thirty Lakh Ninety-Two Thousand Three Hundred Thirty-Six Only.</span>
+          </div>
+
+          <!-- Scope of Rate -->
+          <div class="mb-4 space-y-1 text-[13px] text-black">
+            <div class="font-bold">Scope of Rate</div>
+            <div id="letterhead-scope-list" class="space-y-1 pl-1">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Notes -->
+          <div class="mb-12 space-y-1 text-[13px] text-black">
+            <div class="font-bold">Payment Terms</div>
+            <div id="letterhead-notes-list" class="space-y-1 pl-1">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Signature Block -->
+          <div class="flex justify-between items-end pt-12">
+            <div>
+              <div class="text-[13px] text-black">We hope our quotation suits your requirement and that you will give us the opportunity to work on your prestigious project. We assure you of the best possible quality, workmanship and timely completion of the project.</div>
+              <div class="mt-4 text-[13px] text-black">Thank you.</div>
+              <div class="mt-4 text-[13px] text-black">Yours sincerely,</div>
+              <div class="mt-12 font-bold text-black">Ajay Shah</div>
+              <div class="text-black">Ajay Shah &amp; Associates</div>
+            </div>
+          </div>
+          
+          <div class="h-12"></div>
+
+          <!-- Footer Bar -->
+          <div class="bg-[#3b5b99] text-white text-center py-2.5 text-xs sm:text-sm w-[calc(100%+3rem)] -ml-6 sm:-ml-10 -mb-6 sm:-mb-10 flex items-center justify-center gap-2 mt-auto self-end justify-self-end">
+            <span>&bull; 10, Vraj Darshan Society, Manjalpur, Vadodara - 390 011.</span>
+            <span>&bull; E-mail: ahshah05@gmail.com</span>
+          </div>
+          
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: LETTERHEAD PDF PRINT/PREVIEW (Exact WhatsApp Letterhead Replica)   -->
+  <!-- ========================================================================= -->
+  <div id="letterhead-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-2 sm:p-4 bg-slate-950/80 backdrop-blur-xs overflow-y-auto">
+    <div class="relative w-full max-w-4xl bg-white rounded-2xl shadow-2xl my-auto overflow-hidden flex flex-col max-h-[95vh]">
+      
+      <div class="px-6 py-3.5 bg-slate-900 text-white flex items-center justify-between shrink-0 no-print">
+        <div class="flex items-center gap-3">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#E6CBA8]"></span>
+          <span class="text-xs font-mono font-semibold uppercase tracking-wider">Official Quotation Letterhead &middot; Ajay Shah &amp; Associates</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="window.print()" class="px-3.5 py-1.5 bg-[#C49A6C] hover:bg-[#C49A6C] text-white text-xs font-bold rounded-lg flex items-center gap-1.5 shadow-sm">
+            <i data-lucide="printer" class="w-3.5 h-3.5"></i>
+            <span>Print / Save PDF</span>
+          </button>
+          <button onclick="closeLetterheadModal()" class="p-1.5 text-slate-400 hover:text-white rounded-lg">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Printable Area -->
+      <div class="overflow-y-auto p-4 sm:p-8 bg-slate-100 flex justify-center">
+        <div id="printable-letterhead-content" class="w-full max-w-[800px] bg-white p-6 sm:p-10 shadow-md border border-slate-200 text-slate-900 font-sans text-xs sm:text-sm">
+          
+          <!-- Official Letterhead Header (Direct from WhatsApp photo) -->
+          <div class="border-b-2 border-[#8C6239] pb-4 mb-6">
+            <div class="flex items-center justify-between gap-4">
+              <div class="flex items-center gap-2.5">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-[#D4A373] bg-[#F5E6D3] flex flex-col items-center justify-center p-1 text-center shadow-xs">
+                  <span class="text-lg sm:text-xl font-black text-[#C49A6C] leading-none">30</span>
+                  <span class="text-[7px] font-extrabold text-[#A67C52] uppercase tracking-tighter">YEARS OF</span>
+                  <span class="text-[6.5px] font-black text-[#8C6239] uppercase tracking-tighter">EXPERIENCE</span>
+                </div>
+                <div>
+                  <div class="flex items-center gap-1.5">
+                    <span class="text-2xl sm:text-3xl font-black text-[#8C6239] font-serif tracking-tight">AS</span>
+                    <span class="text-lg sm:text-2xl font-black text-[#8C6239] tracking-tight">Ajay Shah &amp; Associates</span>
+                  </div>
+                  <div class="text-[10px] sm:text-xs font-black text-[#C49A6C] tracking-widest uppercase">
+                    ENGINEERS &amp; CONTRACTORS
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-right">
+                <div class="text-base sm:text-lg font-bold text-slate-900 font-serif">Ajay H. Shah</div>
+                <div class="text-[11px] font-semibold text-slate-700">(B.E. Civil)</div>
+                <div class="text-xs font-mono font-bold text-[#8C6239] mt-0.5">M.: 98246 66003</div>
+                <div class="text-[10px] text-slate-500 font-mono">ahshah05@gmail.com</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- To & Date -->
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <div class="font-bold text-slate-800">To,</div>
+              <div id="letterhead-client" class="font-bold text-slate-900 text-sm">Shri Rajeshbhai Patel,</div>
+              <div id="letterhead-company" class="font-medium text-slate-800">The Grand Villa Residence,</div>
+              <div id="letterhead-location" class="text-slate-700">Manjalpur, Vadodara.</div>
+            </div>
+            <div class="text-right font-mono text-xs font-semibold">
+              <span>Date: </span><span id="letterhead-date">19 / 09 / 2026</span>
+            </div>
+          </div>
+
+          <!-- Subject -->
+          <div class="mb-4">
+            <div id="letterhead-subject" class="font-bold text-slate-900 underline text-xs sm:text-sm">
+              Subject: Quotation for Turnkey Residential Bungalow Civil Construction Work.
+            </div>
+          </div>
+
+          <!-- Salutation -->
+          <div class="mb-4 text-xs leading-relaxed text-slate-800">
+            <div>Dear Sir,</div>
+            <div class="mt-1" id="letterhead-opening">
+              With reference to all the architectural drawings given by you and as per our site discussion, we are pleased to submit our quotation for the residential bungalow civil construction at Manjalpur, Vadodara.
+            </div>
+          </div>
+
+          <!-- Table -->
+          <div class="mb-5 overflow-hidden border border-slate-700 rounded-sm">
+            <table class="w-full text-left border-collapse text-xs">
+              <thead class="bg-[#8C6239] text-white font-bold text-[11px] uppercase">
+                <tr class="divide-x divide-slate-700">
+                  <th class="py-2 px-3 text-center w-12">SR. NO.</th>
+                  <th class="py-2 px-3">ITEM</th>
+                  <th class="py-2 px-3 text-right w-20">QTY</th>
+                  <th class="py-2 px-3 text-right w-20">RATE</th>
+                  <th class="py-2 px-3 text-center w-16">UNIT</th>
+                  <th class="py-2 px-3 text-right w-32">AMOUNT (Rs.)</th>
+                </tr>
+              </thead>
+              <tbody id="letterhead-items-tbody" class="divide-y divide-slate-300">
+                <!-- Dynamically populated -->
+              </tbody>
+              <tfoot class="border-t-2 border-slate-800 font-bold bg-slate-50">
+                <tr class="divide-x divide-slate-300">
+                  <td colspan="5" class="py-1.5 px-3 text-right uppercase text-[11px]">Subtotal:</td>
+                  <td id="letterhead-subtotal" class="py-1.5 px-3 text-right font-mono">₹ 1,10,95,200</td>
+                </tr>
+                <tr class="divide-x divide-slate-300">
+                  <td colspan="5" class="py-1.5 px-3 text-right uppercase text-[11px]" id="letterhead-gst-rate">GST @ 18%:</td>
+                  <td id="letterhead-gst-amount" class="py-1.5 px-3 text-right font-mono">₹ 19,97,136</td>
+                </tr>
+                <tr class="divide-x divide-slate-300 bg-[#F5E6D3] text-slate-900 font-black text-sm">
+                  <td colspan="5" class="py-2 px-3 text-right uppercase">TOTAL:</td>
+                  <td id="letterhead-grand-total" class="py-2 px-3 text-right font-mono">₹ 1,30,92,336</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+
+          <!-- Amount in Words -->
+          <div class="p-2.5 bg-slate-100 border border-slate-300 rounded-sm mb-5 text-xs font-semibold italic text-slate-800">
+            <span>Amount in words: </span><span id="letterhead-words">Rupees One Crore Thirty Lakh Ninety-Two Thousand Three Hundred Thirty-Six Only.</span>
+          </div>
+
+          <!-- Notes -->
+          <div class="mb-5 border border-slate-700 rounded-sm overflow-hidden">
+            <div class="bg-[#8C6239] text-white text-[11px] font-bold px-3 py-1 uppercase">NOTES</div>
+            <div id="letterhead-notes-list" class="p-3 bg-white space-y-1 text-xs text-slate-800">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Scope of Rate -->
+          <div class="mb-6 space-y-1 text-xs text-slate-800">
+            <div class="font-bold underline uppercase text-[11px]">Scope of Rate:</div>
+            <div id="letterhead-scope-list" class="pl-2 space-y-1">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Signature Block -->
+          <div class="flex justify-between items-end pt-4 border-t border-slate-300">
+            <div>
+              <div class="text-[11px] text-slate-500">Client Acceptance:</div>
+              <div class="h-10"></div>
+              <div class="text-xs font-semibold text-slate-700">Signature &amp; Seal</div>
+            </div>
+            <div class="text-right">
+              <div class="text-xs font-bold text-[#8C6239]">For Ajay Shah &amp; Associates</div>
+              <div class="h-8 flex items-center justify-end font-serif text-[#A67C52] italic text-base">
+                Ajay H. Shah
+              </div>
+              <div class="text-xs font-bold text-slate-900">Ajay H. Shah (B.E. Civil)</div>
+              <div class="text-[10px] text-slate-500 font-mono">Chief Engineer &amp; Contractor</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: QUOTATION CREATOR & COMPREHENSIVE EDITOR                            -->
+  <!-- ========================================================================= -->
+  <div id="quotation-editor-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 backdrop-blur-xs no-print overflow-y-auto">
+    <div class="relative w-full max-w-3xl bg-white rounded-2xl shadow-2xl p-6 sm:p-8 my-auto overflow-y-auto max-h-[92vh]">
+      
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3 mb-4">
+        <div>
+          <h3 id="modal-editor-title" class="text-lg font-bold text-slate-900">Create / Edit Quotation</h3>
+          <p class="text-xs text-slate-500">Edit all quotation letterhead content, line items, rates, notes, and exclusions.</p>
+        </div>
+        <button onclick="closeQuotationEditorModal()" class="p-1.5 text-slate-400 hover:text-slate-700 rounded-lg">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form onsubmit="saveQuotationEditor(event)" class="space-y-4 text-xs">
+        <input type="hidden" id="qedit-id" />
+        
+        <!-- Client Details -->
+        <div class="p-3.5 bg-slate-50 border border-slate-200 rounded-xl space-y-3">
+          <div class="font-bold text-slate-800 text-xs uppercase tracking-wider font-mono">1. Client &amp; Project Information</div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Client Name *</label>
+              <input type="text" id="qedit-client" required placeholder="e.g. Kaushalbhai" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C49A6C] bg-white" />
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Company / Firm Name *</label>
+              <input type="text" id="qedit-company" required placeholder="e.g. Jyoti Advance Metal Mfg Pvt Ltd" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C49A6C] bg-white" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Location / Site *</label>
+              <input type="text" id="qedit-location" required placeholder="e.g. Manjalpur, Vadodara" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C49A6C] bg-white" />
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Quotation Ref No</label>
+              <input type="text" id="qedit-ref" placeholder="e.g. ASA/QUO/2026/0919" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white font-mono" />
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Date</label>
+              <input type="text" id="qedit-date" required class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white font-mono" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div class="sm:col-span-2">
+              <label class="block font-semibold text-slate-700 mb-1">Subject</label>
+              <input type="text" id="qedit-subject" required placeholder="Quotation of civil work as per drawings provided." class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white" />
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Quotation Status</label>
+              <select id="qedit-status" class="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white font-semibold text-slate-800">
+                <option value="Sent">Sent to Client</option>
+                <option value="Draft">Draft</option>
+                <option value="Approved">Approved / Confirmed</option>
+                <option value="Negotiation">Under Discussion</option>
+                <option value="Completed">Completed Work</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Opening Text / Salutation -->
+        <div class="p-3.5 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <div class="font-bold text-slate-800 text-xs uppercase tracking-wider font-mono">2. Letterhead Opening Salutation &amp; Content</div>
+          <p class="text-[11px] text-slate-500">Edit the introductory letter paragraph printed below 'Dear Sir,' in your official letterhead:</p>
+          <textarea id="qedit-opening" rows="2" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white text-slate-800 leading-relaxed"></textarea>
+        </div>
+
+        <!-- Dynamic Civil Items / BOQ -->
+        <div class="p-3.5 bg-slate-50 border border-slate-200 rounded-xl space-y-3">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="font-bold text-slate-800 text-xs uppercase tracking-wider font-mono">3. Civil Scope &amp; Bill of Quantities (BOQ Items)</div>
+              <div class="text-[11px] text-slate-500">Add, edit, or remove multiple item rows with rates and quantities.</div>
+            </div>
+            <button type="button" onclick="addQuotationItemRow()" class="px-3 py-1.5 bg-[#F5E6D3] hover:bg-[#F5E6D3] text-[#A67C52] rounded-lg text-xs font-bold flex items-center gap-1 cursor-pointer transition-colors">
+              <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+              <span>+ Add Item Row</span>
+            </button>
+          </div>
+
+          <div id="qedit-items-container" class="space-y-2.5">
+            <!-- Dynamic item rows injected by portal.js -->
+          </div>
+        </div>
+
+        <!-- GST & Totals Summary -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center p-4 bg-[#F5E6D3] border border-[#F5E6D3] rounded-xl">
+          <div>
+            <label class="block text-xs text-slate-900 font-bold mb-1.5">GST Rate Applied</label>
+            <select id="qedit-gst" onchange="recalcEditorTotal()" class="w-full px-3 py-2 border border-[#E6CBA8] rounded-lg bg-white font-mono text-xs font-semibold">
+              <option value="18">GST @ 18% (Standard Construction)</option>
+              <option value="12">GST @ 12% (Government / Works Contract)</option>
+              <option value="5">GST @ 5% (Residential Scheme)</option>
+              <option value="0">Nil / 0% (Tax Exempt)</option>
+            </select>
+          </div>
+          <div class="text-right text-xs space-y-1 bg-white p-3 rounded-lg border border-[#F5E6D3]">
+            <div class="flex justify-between text-slate-600"><span>Subtotal:</span> <span id="qedit-subtotal-disp" class="font-mono font-bold text-slate-900">₹ 0</span></div>
+            <div class="flex justify-between text-slate-600"><span>GST:</span> <span id="qedit-gst-disp" class="font-mono font-bold text-slate-900">₹ 0</span></div>
+            <div class="flex justify-between text-[#8C6239] font-bold text-sm pt-1 border-t border-slate-100"><span>Grand Total:</span> <span id="qedit-total-disp" class="font-mono font-black text-[#8C6239]">₹ 0</span></div>
+            <div id="qedit-words-disp" class="text-[10px] text-slate-500 italic text-left pt-1"></div>
+          </div>
+        </div>
+
+        <!-- Content: Notes / Technical Conditions -->
+        <div class="p-3.5 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <div class="font-bold text-slate-800 text-xs uppercase tracking-wider font-mono">4. Quotation Content: Technical Notes (Numbered on Letterhead)</div>
+          <p class="text-[11px] text-slate-500">Enter each note on a new line (e.g. depth of footing, ground levels, slab casting specs):</p>
+          <textarea id="qedit-notes" rows="3" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white text-slate-800 font-sans leading-relaxed"></textarea>
+        </div>
+
+        <!-- Content: Scope of Rate & Exclusions -->
+        <div class="p-3.5 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <div class="font-bold text-slate-800 text-xs uppercase tracking-wider font-mono">5. Quotation Content: Scope of Rate &amp; Exclusions</div>
+          <p class="text-[11px] text-slate-500">Enter each scope condition on a new line (e.g. work up to plaster, excluded items, owner supplied fixtures):</p>
+          <textarea id="qedit-scope" rows="3" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white text-slate-800 font-sans leading-relaxed"></textarea>
+        </div>
+
+        <!-- Content: Payment Terms -->
+        <div class="p-3.5 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <div class="font-bold text-slate-800 text-xs uppercase tracking-wider font-mono">6. Commercial &amp; Payment Terms</div>
+          <textarea id="qedit-payment" rows="2" placeholder="e.g. 15% mobilization advance, running account bills on 15-day cycle based on site measurement." class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white text-slate-800 font-sans leading-relaxed"></textarea>
+        </div>
+
+        <div class="flex justify-end gap-3 pt-3 border-t border-slate-200">
+          <button type="button" onclick="closeQuotationEditorModal()" class="px-4 py-2 border border-slate-300 rounded-lg hover:bg-slate-100 font-semibold cursor-pointer">Cancel</button>
+          <button type="submit" class="px-5 py-2.5 bg-[#C49A6C] hover:bg-[#A67C52] text-white rounded-lg font-bold shadow-xs cursor-pointer flex items-center gap-1.5">
+            <i data-lucide="check-circle" class="w-4 h-4"></i>
+            <span>Save &amp; View Official Letterhead</span>
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: ADD / EDIT VENDOR (Replaces window.prompt with complete modal)       -->
+  <!-- ========================================================================= -->
+  <div id="vendor-editor-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-xs no-print overflow-y-auto">
+    <div class="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl p-6 sm:p-7 my-auto">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3 mb-4">
+        <div>
+          <h3 id="modal-vendor-title" class="text-lg font-bold text-slate-900">Add Material Vendor</h3>
+          <p class="text-xs text-slate-500">Manage cement, steel, fabrication, sand, or shuttering contractors.</p>
+        </div>
+        <button onclick="closeVendorModal()" class="p-1.5 text-slate-400 hover:text-slate-700 rounded-lg">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form onsubmit="saveVendorModal(event)" class="space-y-3.5 text-xs">
+        <input type="hidden" id="vedit-id" />
+
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1">Company / Firm Name *</label>
+          <input type="text" id="vedit-name" required placeholder="e.g. Kailash RMC &amp; Concrete" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C49A6C] bg-white" />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Supply Category *</label>
+            <select id="vedit-category" required class="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white font-medium text-slate-800">
+              <option value="Cement & RMC">Cement &amp; RMC</option>
+              <option value="TMT Steel">TMT Steel (Fe 550D)</option>
+              <option value="Fabrication">Structural Steel &amp; Grills</option>
+              <option value="Shuttering">Shuttering &amp; Scaffolding</option>
+              <option value="Sand & Aggregate">Sand &amp; Kapchi</option>
+              <option value="Electrical & Plumbing">Electrical &amp; Plumbing</option>
+              <option value="Brickwork">Brickwork &amp; AAC Blocks</option>
+              <option value="Labour Contractor">Labour Contractor Gang</option>
+              <option value="Civil Materials">Other Civil Materials</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Contact Person</label>
+            <input type="text" id="vedit-contact" placeholder="e.g. Dineshbhai Patel" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Phone Number *</label>
+            <input type="text" id="vedit-phone" required placeholder="+91 98250 11442" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white font-mono" />
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Location / Area</label>
+            <input type="text" id="vedit-city" placeholder="e.g. Makarpura GIDC / Manjalpur, Vadodara" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1">Outstanding Dues (₹)</label>
+          <input type="number" id="vedit-dues" step="any" placeholder="0" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white font-mono" />
+        </div>
+
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1">Material Specs &amp; Notes</label>
+          <input type="text" id="vedit-notes" placeholder="e.g. Ultratech 53 grade cement supplier, 30 days credit" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white" />
+        </div>
+
+        <div class="flex justify-end gap-2 pt-3 border-t border-slate-200">
+          <button type="button" onclick="closeVendorModal()" class="px-4 py-2 border border-slate-300 rounded-lg hover:bg-slate-100 font-semibold cursor-pointer">Cancel</button>
+          <button type="submit" class="px-5 py-2 bg-[#C49A6C] hover:bg-[#A67C52] text-white rounded-lg font-bold cursor-pointer">Save Vendor</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: ADD / EDIT SITE STAFF & ENGINEER                                   -->
+  <!-- ========================================================================= -->
+  <div id="team-editor-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-xs no-print overflow-y-auto">
+    <div class="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl p-6 sm:p-7 my-auto">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3 mb-4">
+        <div>
+          <h3 id="modal-team-title" class="text-lg font-bold text-slate-900">Add Site Staff / Engineer</h3>
+          <p class="text-xs text-slate-500">Record site civil engineers, supervisors, and mukadams.</p>
+        </div>
+        <button onclick="closeTeamModal()" class="p-1.5 text-slate-400 hover:text-slate-700 rounded-lg">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form onsubmit="saveTeamModal(event)" class="space-y-3.5 text-xs">
+        <input type="hidden" id="tedit-id" />
+
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1">Staff / Engineer Full Name *</label>
+          <input type="text" id="tedit-name" required placeholder="e.g. Er. Dhaval Patel (B.E. Civil)" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C49A6C] bg-white" />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Role / Designation *</label>
+            <select id="tedit-role" required class="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white font-medium text-slate-800">
+              <option value="Site Civil Engineer">Site Civil Engineer</option>
+              <option value="Junior Project Engineer">Junior Project Engineer</option>
+              <option value="Head Site Supervisor">Head Site Supervisor</option>
+              <option value="RCC & Shuttering Mukadam">RCC &amp; Shuttering Mukadam</option>
+              <option value="Bar Bending Mukadam">Bar Bending Mukadam</option>
+              <option value="Storekeeper & Inward">Storekeeper &amp; Inward</option>
+              <option value="Quality & Safety Officer">Quality &amp; Safety Officer</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Contact Phone *</label>
+            <input type="text" id="tedit-phone" required placeholder="+91 98791 22345" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white font-mono" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Assigned Project / Site *</label>
+            <input type="text" id="tedit-site" required placeholder="e.g. Manjalpur Luxury Villa" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white" />
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Status</label>
+            <select id="tedit-status" class="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white font-medium text-slate-800">
+              <option value="Active">Active on Site</option>
+              <option value="Assigned">Assigned</option>
+              <option value="On Leave">On Leave</option>
+              <option value="Available">Available for New Project</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1">Labour Count / Specialization Notes</label>
+          <input type="text" id="tedit-notes" placeholder="e.g. Manages 22 labours on site, heavy foundation specialist" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white" />
+        </div>
+
+        <div class="flex justify-end gap-2 pt-3 border-t border-slate-200">
+          <button type="button" onclick="closeTeamModal()" class="px-4 py-2 border border-slate-300 rounded-lg hover:bg-slate-100 font-semibold cursor-pointer">Cancel</button>
+          <button type="submit" class="px-5 py-2 bg-[#C49A6C] hover:bg-[#A67C52] text-white rounded-lg font-bold cursor-pointer">Save Staff Member</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: ADD / EDIT PROJECT & BUDGET                                        -->
+  <!-- ========================================================================= -->
+  <div id="project-editor-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-xs no-print overflow-y-auto">
+    <div class="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl p-6 sm:p-7 my-auto">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3 mb-4">
+        <div>
+          <h3 id="modal-project-title" class="text-lg font-bold text-slate-900">Add Construction Project</h3>
+          <p class="text-xs text-slate-500">Track contract values, certified bills, and civil progress.</p>
+        </div>
+        <button onclick="closeProjectModal()" class="p-1.5 text-slate-400 hover:text-slate-700 rounded-lg">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form onsubmit="saveProjectModal(event)" class="space-y-3.5 text-xs">
+        <input type="hidden" id="pedit-id" />
+
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1">Project Name *</label>
+          <input type="text" id="pedit-title" required placeholder="e.g. The Grand Villa Residence" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C49A6C] bg-white" />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Project Type</label>
+            <input type="text" id="pedit-type" placeholder="e.g. Residential Bungalow Construction" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white" />
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Client Name</label>
+            <input type="text" id="pedit-client" placeholder="e.g. Rajeshbhai Patel" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Site Location *</label>
+            <input type="text" id="pedit-location" required placeholder="e.g. Manjalpur, Vadodara" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white" />
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Progress Percentage (0-100%)</label>
+            <input type="number" id="pedit-progress" min="0" max="100" placeholder="35" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white font-mono" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Contract Value (₹) *</label>
+            <input type="number" id="pedit-value" step="any" required placeholder="13092336" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white font-mono" />
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Received R.A. Bills (₹)</label>
+            <input type="number" id="pedit-received" step="any" placeholder="4500000" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white font-mono" />
+          </div>
+        </div>
+
+        <div class="flex justify-end gap-2 pt-3 border-t border-slate-200">
+          <button type="button" onclick="closeProjectModal()" class="px-4 py-2 border border-slate-300 rounded-lg hover:bg-slate-100 font-semibold cursor-pointer">Cancel</button>
+          <button type="submit" class="px-5 py-2 bg-[#C49A6C] hover:bg-[#A67C52] text-white rounded-lg font-bold cursor-pointer">Save Project</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: QUICK UPDATE VENDOR DUES                                           -->
+  <!-- ========================================================================= -->
+  <div id="dues-quick-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-xs no-print">
+    <div class="relative w-full max-w-sm bg-white rounded-2xl shadow-2xl p-6 my-auto">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3 mb-4">
+        <h3 class="text-base font-bold text-slate-900">Update Vendor Dues</h3>
+        <button onclick="closeQuickDuesModal()" class="p-1 text-slate-400 hover:text-slate-700 rounded-lg">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <form onsubmit="saveQuickDues(event)" class="space-y-3 text-xs">
+        <input type="hidden" id="quick-dues-vendor-id" />
+        <div>
+          <div class="text-slate-500 text-[11px]">Vendor:</div>
+          <div id="quick-dues-vendor-name" class="font-bold text-slate-900 text-sm"></div>
+        </div>
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1">New Outstanding Balance (₹)</label>
+          <input type="number" id="quick-dues-amount" required step="any" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none font-mono text-base font-bold text-[#A67C52]" />
+        </div>
+        <div class="flex justify-end gap-2 pt-2 border-t border-slate-200">
+          <button type="button" onclick="closeQuickDuesModal()" class="px-3 py-1.5 border border-slate-300 rounded-lg hover:bg-slate-100 font-semibold cursor-pointer">Cancel</button>
+          <button type="submit" class="px-4 py-1.5 bg-[#C49A6C] hover:bg-[#C49A6C] text-white rounded-lg font-bold cursor-pointer">Update Balance</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="portal.js"></script>
+  <script>
+    function togglePasswordVisibility() {
+      const input = document.getElementById('portal-pin-input');
+      const icon = document.getElementById('toggle-pwd-icon');
+      if (!input) return;
+      if (input.type === 'password') {
+        input.type = 'text';
+        if (icon) icon.setAttribute('data-lucide', 'eye-off');
+      } else {
+        input.type = 'password';
+        if (icon) icon.setAttribute('data-lucide', 'eye');
+      }
+      if (window.lucide) window.lucide.createIcons();
+    }
+    
+    function verifyPortalPin(e) {
+      if (e) e.preventDefault();
+      const input = document.getElementById('portal-pin-input');
+      const err = document.getElementById('auth-error-msg');
+      if (!input) return false;
+      const cleanVal = (input.value || '').replace(/[\u200B-\u200D\uFEFF]/g, '').trim();
+      const isCorrect = (cleanVal === 'Sweta@123') || (cleanVal.toLowerCase() === 'sweta@123');
+
+      if (isCorrect) {
+        if (err) err.classList.add('hidden');
+        document.getElementById('portal-auth-modal').classList.add('hidden');
+        document.getElementById('portal-dashboard-modal').classList.remove('hidden');
+        if (typeof switchPortalTab === 'function') switchPortalTab('quotations');
+        return false;
+      } else {
+        if (err) err.classList.remove('hidden');
+        input.focus();
+        input.select();
+        return false;
+      }
+    }
+
+    window.onload = () => {
+      lucide.createIcons();
+      // Ensure the auth modal is visible immediately
+      document.getElementById('portal-auth-modal').classList.remove('hidden');
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,1772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ajay Shah &amp; Associates — Engineers &amp; Contractors | Er. Ajay H. Shah (B.E. Civil)</title>
+  <meta name="description" content="Ajay Shah &amp; Associates - Er. Ajay H. Shah (B.E. Civil). 30+ Years Construction Experience in Industrial Sheds, Factories, and Heavy Civil Engineering. Builder Portal &amp; Quotation Management." />
+  <meta property="og:title" content="Ajay Shah &amp; Associates — Engineers &amp; Contractors" />
+  <meta property="og:description" content="30+ Years Construction Experience in Industrial Sheds, Heavy RCC, and Civil Contracting. Er. Ajay H. Shah (B.E. Civil)." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts: Playfair Display (Serif), Plus Jakarta Sans (Sans), JetBrains Mono (Mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            stone: {
+              50: '#FBFBF9',
+              100: '#F5F5F0',
+              200: '#E7E5E0',
+              300: '#D6D3CC',
+              400: '#A8A49A',
+              500: '#78746C',
+              600: '#57534D',
+              700: '#44403C',
+              800: '#292524',
+              900: '#1C1917',
+              950: '#0C0A09',
+            },
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+              950: '#0f172a',
+            },
+            amber: {
+              500: '#C28E5C',
+              600: '#A57344',
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- GSAP 3 & ScrollTrigger via CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* Architectural Custom Utilities */
+    ::selection {
+      background-color: #1e3a8a;
+      color: #ffffff;
+    }
+
+    .bg-blueprint {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(30, 58, 138, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(30, 58, 138, 0.04) 1px, transparent 1px);
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Print styles: Print only clean A4 Letterhead */
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #printable-letterhead-content, #printable-letterhead-content * {
+        visibility: visible;
+      }
+      #printable-letterhead-content {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 20px;
+        background: white !important;
+        color: black !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+    }
+
+    :root {
+      --header-offset: 72px;
+    }
+  </style>
+</head>
+<body class="bg-stone-50 text-stone-900 font-sans antialiased transition-colors duration-300 selection:bg-brand-900 selection:text-white">
+
+  <!-- ========================================================================= -->
+  <!-- 1. STICKY HEADER (Clean & Uncluttered Navigation)                         -->
+  <!-- ========================================================================= -->
+  <header class="sticky top-0 left-0 right-0 z-40 bg-stone-50/95 backdrop-blur-md border-b border-stone-200/80 shadow-xs transition-colors no-print">
+
+    <!-- Main Navigation Bar (Clean & uncluttered for regular clients & visitors) -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
+      
+      <!-- Brand Monogram matching Dad's Letterhead -->
+      <a href="#" class="group flex items-center gap-3 shrink-0" title="Ajay Shah & Associates">
+        <div class="w-10 h-10 rounded-lg bg-brand-900 text-white flex items-center justify-center font-serif font-black text-lg shadow-sm border border-brand-800 shrink-0">
+          AS
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif text-lg sm:text-xl font-bold tracking-tight text-stone-900 group-hover:text-blue-900 transition-colors leading-tight">
+            Ajay Shah &amp; Associates
+          </span>
+          <div class="text-[10px] font-mono uppercase tracking-widest text-stone-500 font-semibold leading-tight mt-0.5">
+            Civil Engineers &amp; Home Builders &middot; Er. Ajay H. Shah
+          </div>
+        </div>
+      </a>
+
+      <!-- Clean text navigation links -->
+      <nav class="hidden lg:flex items-center gap-6 xl:gap-8 text-xs uppercase tracking-widest font-semibold text-stone-600">
+        <a href="#projects" class="hover:text-stone-900 transition-colors py-1">Works</a>
+        <a href="#services" class="hover:text-stone-900 transition-colors py-1">Civil Services</a>
+        <a href="#philosophy" class="hover:text-stone-900 transition-colors py-1">Philosophy</a>
+        <a href="#process" class="hover:text-stone-900 transition-colors py-1">Build Process</a>
+        <a href="#contact" class="hover:text-stone-900 transition-colors py-1">Contact</a>
+      </nav>
+
+      <!-- Primary actions for regular users: Direct Contact, no portal clutter -->
+      <div class="flex items-center gap-2.5 sm:gap-3 shrink-0">
+        <a href="#contact" class="inline-flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 bg-stone-900 hover:bg-stone-800 text-white rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm transition-all cursor-pointer">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-amber-400 shrink-0"></i>
+          <span>Contact Us</span>
+        </a>
+
+        <!-- Mobile Navigation Toggle -->
+        <button onclick="toggleMobileNav()" class="lg:hidden p-2 text-stone-700 hover:text-stone-900 rounded-lg hover:bg-stone-200/50 transition-colors" aria-label="Toggle navigation menu">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobile-nav-menu" class="hidden lg:hidden border-t border-stone-200 bg-stone-50 px-4 py-3 space-y-2 text-xs uppercase tracking-wider font-semibold font-mono">
+      <a href="#projects" onclick="toggleMobileNav()" class="block py-2 text-stone-700 hover:text-blue-900">Works &amp; Homes</a>
+      <a href="#services" onclick="toggleMobileNav()" class="block py-2 text-stone-700 hover:text-blue-900">Civil Services &amp; Rates</a>
+      <a href="#philosophy" onclick="toggleMobileNav()" class="block py-2 text-stone-700 hover:text-blue-900">Building Philosophy</a>
+      <a href="#process" onclick="toggleMobileNav()" class="block py-2 text-stone-700 hover:text-blue-900">Build Process</a>
+      <a href="#contact" onclick="toggleMobileNav()" class="block py-2 text-stone-700 hover:text-blue-900">Contact &amp; Details</a>
+      <div class="pt-2 border-t border-stone-200">
+        <a href="#contact" onclick="toggleMobileNav()" class="block w-full py-2.5 bg-stone-900 text-white text-center rounded-lg font-bold">
+          Contact Er. Ajay Shah
+        </a>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- 3. HERO SECTION & SCROLL ANIMATION (Animated House Visual Feature)        -->
+  <!-- ========================================================================= -->
+  <section id="hero-section" class="relative bg-stone-50 transition-colors duration-500">
+    
+    <!-- Pinned Container: Sticks flush under the sticky header -->
+    <div id="hero-pinned-container" class="sticky w-full overflow-hidden flex flex-col justify-between pt-5 sm:pt-7 pb-4 px-4 sm:px-6 lg:px-8 select-none" style="top: var(--header-offset); height: calc(100vh - var(--header-offset));">
+      
+      <!-- Blueprint Hairlines Grid -->
+      <div class="absolute inset-0 bg-blueprint opacity-60 pointer-events-none"></div>
+
+      <!-- Hero Header & Title Text (Fades out and drifts up on scroll) -->
+      <div id="hero-text-block" class="relative z-20 text-center max-w-4xl mx-auto flex flex-col items-center pt-2 sm:pt-4 pointer-events-auto">
+        
+        <div class="inline-flex items-center gap-2 mb-3 text-[11px] font-mono tracking-widest uppercase text-stone-500">
+          <span class="w-2 h-2 rounded-full bg-blue-700 inline-block animate-pulse"></span>
+          <span>Civil Engineers &amp; Home Builders &middot; Er. Ajay H. Shah (B.E. Civil)</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl md:text-7xl font-serif text-stone-900 tracking-tight leading-[1.08] mb-4 text-balance">
+          Engineering Homes Built on 30 Years of Integrity.
+        </h1>
+
+        <p class="text-sm sm:text-base md:text-lg text-stone-600 font-sans max-w-2xl mx-auto mb-6 font-light leading-relaxed">
+          Bespoke home maker and commercial builder crafting luxury residences, private bungalows, modern duplexes, and commercial complexes across Vadodara — with a dedicated focus on Manjalpur, Makarpura, and Akota.
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+          <a href="#projects" class="px-6 py-3 bg-stone-900 text-white text-xs uppercase tracking-widest font-bold rounded-full inline-flex items-center gap-2 hover:bg-stone-800 transition-all shadow-md">
+            <span>Explore Portfolio &amp; Works</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+          <a href="#contact" class="px-6 py-3 bg-white border border-stone-300 text-stone-800 text-xs uppercase tracking-widest font-semibold rounded-full hover:border-stone-900 transition-all">
+            Inquire for Home Building
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Central House Visual Container (Scales down smoothly on GSAP scroll scrub) -->
+      <div class="relative w-full max-w-5xl mx-auto flex-1 flex items-center justify-center my-auto px-2 z-10">
+        
+        <div id="house-card" class="relative w-full aspect-[16/10] sm:aspect-[16/9] rounded-2xl sm:rounded-3xl overflow-hidden border border-stone-300/80 shadow-[0_25px_80px_-15px_rgba(28,25,23,0.22)] bg-stone-200 transition-all">
+          
+          <img id="hero-house-img" 
+               src="house.png" 
+               onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80'" 
+               alt="Ajay Shah & Associates - Engineered Civil Construction & Home Building" 
+               referrerpolicy="no-referrer"
+               class="w-full h-full object-cover object-center transform origin-center select-none will-change-transform" />
+
+          <!-- Cinematic Vignette Overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-stone-950/70 via-transparent to-stone-950/20 pointer-events-none"></div>
+
+          <!-- Bottom Card Meta Label inside frame -->
+          <div class="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 flex justify-between items-end text-white z-20 pointer-events-none">
+            <div>
+              <span class="text-[10px] font-mono tracking-widest uppercase text-amber-300 font-bold">Featured Residential Build</span>
+              <div class="text-sm sm:text-base font-serif font-bold">Bespoke Luxury Bungalow &middot; Manjalpur, Vadodara</div>
+            </div>
+            <div class="text-right">
+              <span class="text-[10px] font-mono tracking-widest uppercase text-stone-300">Shri Rajeshbhai Patel Residence</span>
+              <div class="text-xs text-stone-300 font-mono">4,850 SQ. FT. TURNKEY HOME</div>
+            </div>
+          </div>
+
+          <!-- Floating Architectural Callouts (revealed smoothly on GSAP scroll scrub) -->
+          
+          <!-- Callout 1: Framing & Structure -->
+          <div id="callout-1" class="hero-callout hidden sm:block absolute top-[16%] left-[6%] sm:left-[10%] z-30 pointer-events-auto">
+            <div class="relative group">
+              <div class="flex items-center gap-2">
+                <span class="relative flex h-3.5 w-3.5">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-blue-600 border-2 border-white shadow"></span>
+                </span>
+                <div class="px-3.5 py-1.5 bg-stone-900/90 backdrop-blur-md border border-stone-700/80 rounded-lg text-stone-100 shadow-2xl">
+                  <div class="text-[10px] font-mono tracking-widest text-amber-400 uppercase font-semibold flex items-center gap-1.5">
+                    <span>RCC Structural Framing</span>
+                  </div>
+                  <div class="text-[11px] text-stone-300 font-sans">High-Grade Columns &amp; Solid Brickwork</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Callout 2: Foundation -->
+          <div id="callout-2" class="hero-callout hidden sm:block absolute bottom-[26%] left-[8%] sm:left-[12%] z-30 pointer-events-auto">
+            <div class="relative group">
+              <div class="flex items-center gap-2">
+                <span class="relative flex h-3.5 w-3.5">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500 border-2 border-white shadow"></span>
+                </span>
+                <div class="px-3.5 py-1.5 bg-stone-900/90 backdrop-blur-md border border-stone-700/80 rounded-lg text-stone-100 shadow-2xl">
+                  <div class="text-[10px] font-mono tracking-widest text-emerald-400 uppercase font-semibold flex items-center gap-1.5">
+                    <span>Earthquake-Resistant Base</span>
+                  </div>
+                  <div class="text-[11px] text-stone-300 font-sans">Deep Footings &amp; Soil Anchoring</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Callout 3: Quotation & Rates -->
+          <div id="callout-3" class="hero-callout hidden sm:block absolute top-[22%] right-[6%] sm:right-[10%] z-30 pointer-events-auto">
+            <div class="relative group">
+              <div class="flex items-center gap-2 flex-row-reverse">
+                <span class="relative flex h-3.5 w-3.5">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-amber-500 border-2 border-white shadow"></span>
+                </span>
+                <div class="px-3.5 py-1.5 bg-stone-900/90 backdrop-blur-md border border-stone-700/80 rounded-lg text-stone-100 shadow-2xl text-right">
+                  <div class="text-[10px] font-mono tracking-widest text-amber-400 uppercase font-semibold flex items-center justify-end gap-1.5">
+                    <span>Transparent Rate Quotation</span>
+                  </div>
+                  <div class="text-[11px] text-stone-300 font-sans">Detailed BOQ &amp; Milestone Billing</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Callout 4: Materials -->
+          <div id="callout-4" class="hero-callout hidden sm:block absolute bottom-[26%] right-[8%] sm:right-[12%] z-30 pointer-events-auto">
+            <div class="relative group">
+              <div class="flex items-center gap-2 flex-row-reverse">
+                <span class="relative flex h-3.5 w-3.5">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-sky-500 border-2 border-white shadow"></span>
+                </span>
+                <div class="px-3.5 py-1.5 bg-stone-900/90 backdrop-blur-md border border-stone-700/80 rounded-lg text-stone-100 shadow-2xl text-right">
+                  <div class="text-[10px] font-mono tracking-widest text-sky-400 uppercase font-semibold flex items-center justify-end gap-1.5">
+                    <span>Premium Grade Materials</span>
+                  </div>
+                  <div class="text-[11px] text-stone-300 font-sans">UltraTech OPC 53 &middot; Tata Tiscon Fe 550D</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Bottom Hint Bar -->
+      <div id="hero-scroll-hint" class="relative z-20 flex items-center justify-between text-xs text-stone-500 font-mono max-w-5xl mx-auto w-full pt-3 border-t border-stone-200/50">
+        <div class="flex items-center gap-2.5">
+          <span class="w-2 h-2 rounded-full bg-blue-700 animate-bounce"></span>
+          <span class="tracking-widest uppercase text-[10px] text-stone-700 font-bold">Scroll to examine home construction anatomy</span>
+        </div>
+        <div class="hidden sm:flex items-center gap-3 text-[10px] tracking-widest uppercase">
+          <span>ER. AJAY H. SHAH (B.E. CIVIL)</span>
+          <span>&middot;</span>
+          <span>M.: 98246 66003</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Scroll Spacer: gives tight responsive distance for GSAP pin scrub before releasing -->
+    <div id="hero-scroll-track" class="h-[50vh] w-full pointer-events-none"></div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 4. CREDIBILITY & METRICS BAR (4-Column Stat Bar)                          -->
+  <!-- ========================================================================= -->
+  <section class="relative z-20 bg-stone-100 border-y border-stone-200 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0 divide-y md:divide-y-0 md:divide-x divide-stone-200">
+        
+        <div class="flex flex-col items-center text-center px-4 pt-4 md:pt-0">
+          <div class="text-4xl sm:text-5xl font-serif font-bold text-stone-900 tabular-nums">
+            30<span class="text-amber-500">+</span>
+          </div>
+          <div class="text-xs uppercase tracking-widest font-mono text-stone-600 mt-2 font-bold">
+            Years Experience
+          </div>
+          <div class="text-[11px] text-stone-500 mt-1">
+            Engineers &amp; Home Builders Legacy
+          </div>
+        </div>
+
+        <div class="flex flex-col items-center text-center px-4 pt-4 md:pt-0">
+          <div class="text-4xl sm:text-5xl font-serif font-bold text-stone-900 tabular-nums">
+            180<span class="text-blue-700">+</span>
+          </div>
+          <div class="text-xs uppercase tracking-widest font-mono text-stone-600 mt-2 font-bold">
+            Delivered Builds
+          </div>
+          <div class="text-[11px] text-stone-500 mt-1">
+            Luxury Bungalows &amp; Commercial Builds
+          </div>
+        </div>
+
+        <div class="flex flex-col items-center text-center px-4 pt-4 md:pt-0">
+          <div class="text-4xl sm:text-5xl font-serif font-bold text-stone-900 tabular-nums">
+            100<span class="text-emerald-600">%</span>
+          </div>
+          <div class="text-xs uppercase tracking-widest font-mono text-stone-600 mt-2 font-bold">
+            Drawing Compliance
+          </div>
+          <div class="text-[11px] text-stone-500 mt-1">
+            Architectural &amp; Structural Standards
+          </div>
+        </div>
+
+        <div class="flex flex-col items-center text-center px-4 pt-4 md:pt-0">
+          <div class="text-4xl sm:text-5xl font-serif font-bold text-stone-900 tabular-nums">
+            250<span class="text-blue-900">+</span>
+          </div>
+          <div class="text-xs uppercase tracking-widest font-mono text-stone-600 mt-2 font-bold">
+            Homes &amp; Projects
+          </div>
+          <div class="text-[11px] text-stone-500 mt-1">
+            Manjalpur, Makarpura &amp; Akota
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 5. SERVICES & CAPABILITIES                                                -->
+  <!-- ========================================================================= -->
+  <section id="services" class="py-24 bg-stone-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-stone-200">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-blue-700 font-bold block mb-2">Our Capabilities</span>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-stone-900">
+            Disciplined Home Building &amp; Commercial Contracting.
+          </h2>
+        </div>
+        <p class="mt-4 md:mt-0 text-sm text-stone-600 max-w-md font-sans leading-relaxed">
+          Led by Er. Ajay H. Shah (B.E. Civil). Single-source accountability for custom residential homes, luxury bungalows, duplexes, and commercial complexes across Vadodara.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <div class="p-8 rounded-2xl bg-white border border-stone-200 hover:border-stone-900 transition-all flex flex-col justify-between hover:shadow-lg">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-900 flex items-center justify-center mb-6">
+              <i data-lucide="home" class="w-6 h-6"></i>
+            </div>
+            <div class="text-xs font-mono uppercase tracking-widest text-stone-400 mb-2">01 / RESIDENTIAL</div>
+            <h3 class="text-xl font-serif font-bold text-stone-900 mb-3">Custom Homes &amp; Bungalows</h3>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              Turnkey residential construction from foundation excavation to brickwork, double-coat plaster, waterproofing, and architectural detailing for modern family living.
+            </p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-stone-100 flex items-center justify-between text-xs font-mono text-stone-500">
+            <span>Manjalpur &middot; Akota &middot; Vadodara</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </div>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-white border border-stone-200 hover:border-stone-900 transition-all flex flex-col justify-between hover:shadow-lg">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-900 flex items-center justify-center mb-6">
+              <i data-lucide="building-2" class="w-6 h-6"></i>
+            </div>
+            <div class="text-xs font-mono uppercase tracking-widest text-stone-400 mb-2">02 / COMMERCIAL</div>
+            <h3 class="text-xl font-serif font-bold text-stone-900 mb-3">Commercial Complexes</h3>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              Multi-storey commercial office buildings, shopping arcades, and retail showrooms engineered with high-load RCC columns and flexible open floor spans.
+            </p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-stone-100 flex items-center justify-between text-xs font-mono text-stone-500">
+            <span>Makarpura &middot; Akota Road</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </div>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-white border border-stone-200 hover:border-stone-900 transition-all flex flex-col justify-between hover:shadow-lg">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-900 flex items-center justify-center mb-6">
+              <i data-lucide="building" class="w-6 h-6"></i>
+            </div>
+            <div class="text-xs font-mono uppercase tracking-widest text-stone-400 mb-2">03 / STRUCTURES</div>
+            <h3 class="text-xl font-serif font-bold text-stone-900 mb-3">Heavy RCC Framing</h3>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              Reinforced cement concrete frames, 2.1M deep isolated footings, column jackets, earthquake-resistant design, and smooth plaster finish.
+            </p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-stone-100 flex items-center justify-between text-xs font-mono text-stone-500">
+            <span>IS 456 Code &middot; Tested Concrete</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </div>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-white border border-stone-200 hover:border-stone-900 transition-all flex flex-col justify-between hover:shadow-lg">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-900 flex items-center justify-center mb-6">
+              <i data-lucide="file-spreadsheet" class="w-6 h-6"></i>
+            </div>
+            <div class="text-xs font-mono uppercase tracking-widest text-stone-400 mb-2">04 / ESTIMATES</div>
+            <h3 class="text-xl font-serif font-bold text-stone-900 mb-3">Quotation &amp; Rate Analysis</h3>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              Honest per-square-foot rate analysis, detailed measurement book (MB) records, and clear bills of quantities with zero hidden surprises.
+            </p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-stone-100 flex items-center justify-between text-xs font-mono text-stone-500">
+            <span>Itemized BOQ &middot; GST Invoicing</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 6. SELECTED PROJECTS SHOWCASE                                             -->
+  <!-- ========================================================================= -->
+  <section id="projects" class="py-24 bg-stone-100 border-t border-stone-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-stone-500 font-bold block mb-2">Selected Works</span>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-stone-900">
+            Featured Homes &amp; Commercial Builds.
+          </h2>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <a href="#contact" class="px-4 py-2 bg-stone-900 hover:bg-stone-800 text-white text-xs font-bold rounded-lg shadow-sm flex items-center gap-1.5 transition-colors">
+            <i data-lucide="mail" class="w-3.5 h-3.5 text-amber-400"></i>
+            <span>Inquire for Site Construction &rarr;</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Project 1: Manjalpur Luxury Residence -->
+        <div class="group bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm transition-all hover:shadow-md">
+          <div class="relative aspect-[16/10] bg-stone-300 overflow-hidden">
+            <img src="house.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80'" alt="Manjalpur Luxury Residence" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-stone-950/70 via-transparent to-transparent"></div>
+            <div class="absolute top-4 right-4 px-3 py-1 bg-brand-900/90 text-white rounded-full text-[10px] font-mono font-bold uppercase tracking-wider">
+              Manjalpur &middot; 2026
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end text-white">
+              <div>
+                <span class="text-[10px] font-mono text-amber-300 uppercase font-bold">Luxury Residential Bungalow</span>
+                <div class="text-base font-serif font-bold">The Grand Villa Residence</div>
+              </div>
+              <div class="text-xs font-mono font-bold text-amber-300">₹ 85,00,000</div>
+            </div>
+          </div>
+          <div class="p-6 flex items-center justify-between">
+            <div>
+              <div class="text-xs text-stone-500">4,850 S. FT Ground + 2 luxury home with earthquake-resistant RCC frame and double-coat plaster.</div>
+              <div class="text-xs font-mono text-blue-700 font-bold mt-1">Client: Rajeshbhai Patel &middot; Status: Handed Over</div>
+            </div>
+            <a href="#contact" class="w-8 h-8 rounded-full bg-stone-100 group-hover:bg-brand-900 group-hover:text-white flex items-center justify-center transition-colors" title="Contact about similar project">
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 2: Akota Commercial Arcade -->
+        <div class="group bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm transition-all hover:shadow-md">
+          <div class="relative aspect-[16/10] bg-stone-300 overflow-hidden">
+            <img src="project_lakeview.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80'" alt="Commercial Arcade" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-stone-950/70 via-transparent to-transparent"></div>
+            <div class="absolute top-4 right-4 px-3 py-1 bg-brand-900/90 text-white rounded-full text-[10px] font-mono font-bold uppercase tracking-wider">
+              Akota &middot; 2025
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end text-white">
+              <div>
+                <span class="text-[10px] font-mono text-amber-300 uppercase font-bold">Commercial Complex &amp; Showrooms</span>
+                <div class="text-base font-serif font-bold">Apex Commercial Arcade</div>
+              </div>
+              <div class="text-xs font-mono font-bold text-amber-300">₹ 1,45,00,000</div>
+            </div>
+          </div>
+          <div class="p-6 flex items-center justify-between">
+            <div>
+              <div class="text-xs text-stone-500">16,500 S. FT multi-storey commercial complex with heavy RCC columns, premium elevation, and basement parking.</div>
+              <div class="text-xs font-mono text-blue-700 font-bold mt-1">Client: Jitubhai Patel &middot; Status: 85% Complete</div>
+            </div>
+            <a href="#contact" class="w-8 h-8 rounded-full bg-stone-100 group-hover:bg-brand-900 group-hover:text-white flex items-center justify-center transition-colors" title="Contact about similar project">
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 7. OUR 4-STAGE HOME & COMMERCIAL BUILDING PROCESS                         -->
+  <!-- ========================================================================= -->
+  <section id="process" class="py-24 bg-white border-t border-stone-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-mono uppercase tracking-widest text-blue-700 font-bold block mb-2">Systematic Execution</span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-stone-900">
+          Our 4-Stage Home &amp; Commercial Building Process.
+        </h2>
+        <p class="text-sm text-stone-600 mt-4 leading-relaxed font-sans">
+          From initial blueprint study to turnkey key handover, every milestone is supervised by Er. Ajay H. Shah with transparent rate calculations and structural rigor.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        
+        <div class="p-6 rounded-2xl bg-stone-50 border border-stone-200 relative flex flex-col justify-between">
+          <div>
+            <div class="text-2xl font-serif font-black text-amber-600 mb-3">01</div>
+            <h4 class="font-bold text-stone-900 text-base mb-2">Soil Survey &amp; Foundation</h4>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              Thorough site inspection across Manjalpur, Akota, or Makarpura. Soil bearing testing, 2.1M depth footing excavation, and anti-termite treatment.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-stone-200 text-[11px] font-mono text-stone-500 font-bold">
+            STAGE 1: GROUND ZERO
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-stone-50 border border-stone-200 relative flex flex-col justify-between">
+          <div>
+            <div class="text-2xl font-serif font-black text-blue-700 mb-3">02</div>
+            <h4 class="font-bold text-stone-900 text-base mb-2">Heavy RCC Framing</h4>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              Casting high-grade columns, plinth beams, and slabs using certified UltraTech concrete and Tata Tiscon Fe 550D TMT steel with strict curing cycles.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-stone-200 text-[11px] font-mono text-stone-500 font-bold">
+            STAGE 2: STRUCTURAL FRAME
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-stone-50 border border-stone-200 relative flex flex-col justify-between">
+          <div>
+            <div class="text-2xl font-serif font-black text-emerald-600 mb-3">03</div>
+            <h4 class="font-bold text-stone-900 text-base mb-2">Masonry &amp; Plastering</h4>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              Precision red brick or AAC block masonry, electrical &amp; plumbing conduit embedding, and double-coat sand face exterior plaster finish.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-stone-200 text-[11px] font-mono text-stone-500 font-bold">
+            STAGE 3: CIVIL FINISHING
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-stone-50 border border-stone-200 relative flex flex-col justify-between">
+          <div>
+            <div class="text-2xl font-serif font-black text-purple-700 mb-3">04</div>
+            <h4 class="font-bold text-stone-900 text-base mb-2">Waterproofing &amp; Handover</h4>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              Multi-layer terrace and toilet waterproofing, quality audit checklist, itemized final bill verification, and joyful turnkey home handover.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-stone-200 text-[11px] font-mono text-stone-500 font-bold">
+            STAGE 4: TURNKEY DELIVERY
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 8. PHILOSOPHY & BLUEPRINT INTERACTIVE SECTION                             -->
+  <!-- ========================================================================= -->
+  <section id="philosophy" class="py-24 bg-stone-50 border-t border-stone-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-xs font-mono uppercase tracking-widest text-blue-700 font-bold block">Engineering Philosophy</span>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-stone-900 leading-tight">
+            Sound foundations, honest rates, and enduring execution for every home.
+          </h2>
+          <p class="text-sm text-stone-600 font-sans leading-relaxed">
+            With over 30 years of civil engineering and home building experience across Vadodara, Er. Ajay H. Shah approaches every residential and commercial project with structural precision. We eliminate contractor discrepancies by preparing clear, itemized quotations based directly on architectural drawings.
+          </p>
+          <div class="p-4 bg-white rounded-xl border border-stone-200 space-y-2 text-xs font-mono">
+            <div class="flex items-center gap-2 font-bold text-blue-900">
+              <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600"></i>
+              <span>Guaranteed Depth of Footing: 2.1 M Minimum Specification</span>
+            </div>
+            <div class="flex items-center gap-2 font-bold text-blue-900">
+              <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600"></i>
+              <span>IS 456 Compliant Structural Concrete &amp; Fe 550D TMT Reinforcement</span>
+            </div>
+            <div class="flex items-center gap-2 font-bold text-blue-900">
+              <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600"></i>
+              <span>Milestone-Certified Running Account (R.A.) Transparent Billing</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6">
+          <div class="relative rounded-3xl overflow-hidden border border-stone-200 shadow-xl bg-stone-900 aspect-[4/3]">
+            <img src="philosophy_arch.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80'" alt="Engineering Precision" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-blue-950/70 p-6 flex flex-col justify-between text-white font-mono text-xs">
+              <div class="flex justify-between border-b border-blue-500/30 pb-2">
+                <span>AJAY SHAH &amp; ASSOCIATES // DRAWING SPEC</span>
+                <span>REV: 2026-VADODARA</span>
+              </div>
+              <div class="space-y-1 text-center py-6">
+                <div class="text-amber-400 font-bold text-lg font-serif">Structural Civil Drawing Matrix</div>
+                <div class="text-[11px] text-blue-200">Bespoke Residential Bungalow &middot; Manjalpur, Vadodara</div>
+                <div class="text-[11px] text-blue-200">Footing Depth: 2.1 M &middot; Road Level Datum: 0</div>
+              </div>
+              <div class="flex justify-between border-t border-blue-500/30 pt-2 text-[10px] text-blue-300">
+                <span>ER. AJAY H. SHAH (B.E. CIVIL)</span>
+                <span>PH: +91 98246 66003</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 9. TESTIMONIAL QUOTE                                                      -->
+  <!-- ========================================================================= -->
+  <section class="py-20 bg-brand-950 text-white text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <i data-lucide="quote" class="w-10 h-10 text-amber-400 mx-auto mb-6"></i>
+      <blockquote class="text-2xl sm:text-3xl font-serif leading-snug mb-6 text-stone-100">
+        &ldquo;Er. Ajay Shah built our family home in Manjalpur with utmost dedication and precision. His quotation was transparent to the last rupee, the structural civil work is top notch, and after 30 years in Vadodara, his reputation for honesty is completely unmatched.&rdquo;
+      </blockquote>
+      <div class="font-serif font-bold text-lg text-white">Rajeshbhai Patel</div>
+      <div class="text-xs font-mono text-amber-400 uppercase tracking-widest mt-1">Homeowner &middot; Manjalpur, Vadodara</div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 10. CONTACT & FOOTER                                                     -->
+  <!-- ========================================================================= -->
+  <footer id="contact" class="bg-stone-900 text-stone-300 pt-16 pb-12 border-t border-stone-800 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-stone-800">
+        
+        <div class="md:col-span-5 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-blue-700 text-white flex items-center justify-center font-serif font-black text-lg">AS</div>
+            <div>
+              <span class="font-serif text-xl font-bold text-white block">Ajay Shah &amp; Associates</span>
+              <span class="text-xs font-mono text-amber-400 font-bold uppercase">Civil Engineers &amp; Home Builders</span>
+            </div>
+          </div>
+          <p class="text-xs text-stone-400 leading-relaxed font-sans max-w-sm">
+            Over three decades of bespoke home building, luxury residential bungalows, commercial complexes, and structural civil contracting across Vadodara.
+          </p>
+          <div class="pt-1 text-xs font-mono space-y-1.5 text-stone-400">
+            <div>Principal: <span class="text-white font-bold">Er. Ajay H. Shah (B.E. Civil)</span></div>
+            <div>Locations: Vadodara &middot; Manjalpur &middot; Makarpura &middot; Akota</div>
+          </div>
+        </div>
+
+        <div class="md:col-span-3 space-y-3">
+          <div class="text-xs font-mono uppercase tracking-widest text-white font-bold">Civil Contracting</div>
+          <ul class="space-y-2 text-xs text-stone-400">
+            <li>Custom Luxury Homes &amp; Bungalows</li>
+            <li>Modern Residential Duplexes &amp; Villas</li>
+            <li>Commercial Complexes &amp; Showrooms</li>
+            <li>Heavy RCC Structural Contracting</li>
+            <li>Transparent Quotations &amp; Rate Analysis</li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-4 space-y-3">
+          <div class="text-xs font-mono uppercase tracking-widest text-white font-bold">Vadodara Wide Operations</div>
+          <p class="text-xs text-stone-400 leading-relaxed font-sans">
+            Headquartered near Manjalpur, Vadodara with dedicated site supervisory presence across Manjalpur, Makarpura, Akota, and all over Vadodara. Direct consultations and site visits by Er. Ajay H. Shah (B.E. Civil).
+          </p>
+          <div class="pt-2 flex flex-col gap-2.5">
+            <a href="tel:+919824666003" class="inline-flex items-center gap-2 text-xs font-mono text-emerald-400 hover:text-emerald-300 font-bold">
+              <i data-lucide="phone-call" class="w-3.5 h-3.5 shrink-0"></i>
+              <span>+91 98246 66003 (Er. Ajay Shah)</span>
+            </a>
+            <a href="mailto:ahshah05@gmail.com" class="inline-flex items-center gap-2 text-xs font-mono text-blue-400 hover:text-blue-300 font-semibold">
+              <i data-lucide="mail" class="w-3.5 h-3.5 shrink-0"></i>
+              <span>ahshah05@gmail.com</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-stone-500 gap-4">
+        <div>&copy; 2026 AJAY SHAH &amp; ASSOCIATES. ALL RIGHTS RESERVED.</div>
+        <div class="flex items-center gap-4">
+          <!-- Discreet Admin entry link for Ajay Shah -->
+          <button onclick="promptAdminLogin()" class="text-stone-600 hover:text-stone-400 flex items-center gap-1 transition-colors cursor-pointer text-xs" title="Contractor Access">
+            <i data-lucide="lock" class="w-3 h-3"></i>
+            <span>Contractor Access</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: SECURE PORTAL AUTHENTICATION (Password Protected)                  -->
+  <!-- ========================================================================= -->
+  <div id="portal-auth-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm no-print">
+    <div class="relative w-full max-w-sm bg-white rounded-2xl shadow-2xl p-6 sm:p-7 border border-slate-200">
+      
+      <button onclick="closeAuthModal()" class="absolute top-4 right-4 p-1.5 text-slate-400 hover:text-slate-700 rounded-lg">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-900 border border-blue-200 flex items-center justify-center">
+          <i data-lucide="lock" class="w-5 h-5 text-blue-700"></i>
+        </div>
+        <div>
+          <h3 class="text-base font-bold text-slate-900">Contractor Access</h3>
+          <div class="text-xs text-slate-500">Ajay Shah &amp; Associates</div>
+        </div>
+      </div>
+
+      <form onsubmit="verifyPortalPin(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1.5">
+            Password
+          </label>
+          <div class="relative">
+            <input type="password" id="portal-pin-input" placeholder="Enter password" autocomplete="current-password" class="w-full px-3.5 py-2.5 pr-10 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white" />
+            <button type="button" onclick="togglePasswordVisibility()" class="absolute right-3 top-2.5 text-slate-400 hover:text-slate-700 cursor-pointer" title="Toggle password visibility">
+              <i id="toggle-pwd-icon" data-lucide="eye" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+
+        <div id="auth-error-msg" class="hidden text-xs text-red-600 font-semibold flex items-center gap-1.5 bg-red-50 p-2.5 rounded-lg border border-red-200">
+          <i data-lucide="alert-circle" class="w-4 h-4"></i>
+          <span>Incorrect password. Access denied.</span>
+        </div>
+
+        <button type="submit" class="w-full py-2.5 bg-blue-700 hover:bg-blue-800 text-white rounded-xl text-xs font-bold uppercase tracking-wider shadow-sm transition-colors flex items-center justify-center gap-2 cursor-pointer">
+          <i data-lucide="unlock" class="w-4 h-4"></i>
+          <span>Login to Portal</span>
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: BUILDER & CONTRACTOR DASHBOARD (Full Suite in 100% English)        -->
+  <!-- ========================================================================= -->
+  <div id="portal-dashboard-modal" class="fixed inset-0 z-50 hidden flex flex-col bg-slate-100 no-print overflow-hidden">
+    
+    <!-- Dashboard Top Bar (Aligned with max-w-7xl and exact px-4 sm:px-6 lg:px-8 gutters) -->
+    <header class="bg-white border-b border-slate-200 shadow-xs shrink-0">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-lg bg-brand-900 text-white flex items-center justify-center font-serif font-black text-sm shrink-0">AS</div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h2 class="text-base font-bold text-slate-900">Builder Management Portal</h2>
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-100 text-emerald-800 font-bold uppercase">Verified Session</span>
+            </div>
+            <div class="text-[11px] text-slate-500 font-mono">Er. Ajay H. Shah (B.E. Civil) &middot; +91 98246 66003</div>
+          </div>
+        </div>
+
+        <!-- Portal Tabs -->
+        <div class="hidden md:flex items-center gap-1 bg-slate-100 p-1 rounded-xl text-xs font-semibold">
+          <button onclick="switchPortalTab('quotations')" id="btn-tab-quotations" class="portal-nav-btn px-4 py-2 rounded-lg text-blue-700 border-b-2 border-blue-600 font-bold transition-all">
+            Quotations &amp; Estimates
+          </button>
+          <button onclick="switchPortalTab('vendors')" id="btn-tab-vendors" class="portal-nav-btn px-4 py-2 rounded-lg text-slate-600 border-b-2 border-transparent hover:text-slate-900 transition-all">
+            Vendors &amp; Materials
+          </button>
+          <button onclick="switchPortalTab('team')" id="btn-tab-team" class="portal-nav-btn px-4 py-2 rounded-lg text-slate-600 border-b-2 border-transparent hover:text-slate-900 transition-all">
+            Site People &amp; Staff
+          </button>
+          <button onclick="switchPortalTab('projects')" id="btn-tab-projects" class="portal-nav-btn px-4 py-2 rounded-lg text-slate-600 border-b-2 border-transparent hover:text-slate-900 transition-all">
+            Projects &amp; Budgets
+          </button>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button onclick="logoutPortal()" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-lg flex items-center gap-1 transition-colors">
+            <i data-lucide="log-out" class="w-3.5 h-3.5"></i>
+            <span class="hidden sm:inline">Lock / Exit</span>
+          </button>
+          <button onclick="closePortalDashboard()" class="p-1.5 text-slate-500 hover:text-slate-900 rounded-lg transition-colors">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Tab Selector (Aligned with max-w-7xl) -->
+    <div class="md:hidden bg-white border-b border-slate-200 px-3 py-2 flex gap-1.5 overflow-x-auto text-xs shrink-0 scrollbar-none">
+      <div class="flex gap-1.5 w-full">
+        <button onclick="switchPortalTab('quotations')" id="mob-btn-tab-quotations" class="mob-portal-nav-btn px-3 py-1.5 rounded-lg bg-blue-600 text-white font-bold whitespace-nowrap text-xs transition-all">Quotations</button>
+        <button onclick="switchPortalTab('vendors')" id="mob-btn-tab-vendors" class="mob-portal-nav-btn px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 font-medium whitespace-nowrap text-xs transition-all">Vendors</button>
+        <button onclick="switchPortalTab('team')" id="mob-btn-tab-team" class="mob-portal-nav-btn px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 font-medium whitespace-nowrap text-xs transition-all">Site Team</button>
+        <button onclick="switchPortalTab('projects')" id="mob-btn-tab-projects" class="mob-portal-nav-btn px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 font-medium whitespace-nowrap text-xs transition-all">Projects</button>
+      </div>
+    </div>
+
+    <!-- Dashboard Body Area -->
+    <div class="flex-1 overflow-y-auto px-4 sm:px-6 lg:px-8 py-6">
+      
+      <!-- TAB 1: QUOTATIONS -->
+      <div id="portal-quotations-tab" class="portal-tab-content space-y-5 max-w-7xl mx-auto">
+        <!-- Quick Stats Banner -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-xs">
+            <div class="text-[10px] font-mono uppercase text-slate-500 font-semibold">Total Quotations</div>
+            <div id="stat-quotes-count" class="text-lg font-bold text-slate-900 mt-0.5">1</div>
+          </div>
+          <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-xs">
+            <div class="text-[10px] font-mono uppercase text-slate-500 font-semibold">Total Value Quoted</div>
+            <div id="stat-quotes-value" class="text-lg font-bold text-blue-900 mt-0.5 font-mono">₹ 1.30 Cr</div>
+          </div>
+          <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-xs">
+            <div class="text-[10px] font-mono uppercase text-slate-500 font-semibold">Under Sent / Active</div>
+            <div id="stat-quotes-sent" class="text-lg font-bold text-amber-700 mt-0.5 font-mono">₹ 1.30 Cr</div>
+          </div>
+          <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-xs">
+            <div class="text-[10px] font-mono uppercase text-slate-500 font-semibold">Contractor Legacy</div>
+            <div class="text-lg font-bold text-emerald-700 mt-0.5">30+ Years</div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
+          <div>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900">Quotation Management &amp; Estimates</h3>
+            <p class="text-xs text-slate-500 mt-0.5">Write comprehensive quotations, edit line items &amp; rates, customize letterhead notes &amp; scope content, download PDF, or WhatsApp directly.</p>
+          </div>
+          <div class="flex items-center gap-2 self-start sm:self-auto">
+            <button onclick="openCreateQuotationModal()" class="px-4 py-2.5 bg-blue-700 hover:bg-blue-800 text-white rounded-xl text-xs font-bold flex items-center gap-2 shadow-xs transition-colors cursor-pointer">
+              <i data-lucide="plus-circle" class="w-4 h-4"></i>
+              <span>+ Create New Quotation</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Search and Filter Bar -->
+        <div class="flex flex-wrap items-center justify-between gap-3 bg-white p-3 rounded-xl border border-slate-200 shadow-xs">
+          <div class="flex items-center gap-2 flex-1 min-w-[200px]">
+            <i data-lucide="search" class="w-4 h-4 text-slate-400"></i>
+            <input type="text" id="quote-search-input" oninput="filterQuotations()" placeholder="Search by client, company, location, or ref no..." class="w-full text-xs bg-transparent focus:outline-none" />
+          </div>
+          <div class="flex items-center gap-2 text-xs">
+            <span class="text-slate-500 font-mono text-[11px]">Status:</span>
+            <select id="quote-status-filter" onchange="filterQuotations()" class="px-2.5 py-1.5 border border-slate-200 rounded-lg text-xs font-medium bg-slate-50 focus:outline-none">
+              <option value="All">All Statuses</option>
+              <option value="Sent">Sent</option>
+              <option value="Draft">Draft</option>
+              <option value="Approved">Approved</option>
+              <option value="Negotiation">Negotiation</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
+          <!-- Desktop Table (hidden on small mobile screens) -->
+          <div class="hidden sm:block overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-50 text-slate-600 font-mono text-[11px] uppercase border-b border-slate-200">
+                <tr>
+                  <th class="py-3 px-3">Ref &amp; Date</th>
+                  <th class="py-3 px-3">Client &amp; Company</th>
+                  <th class="py-3 px-3 text-right">Civil Scope Items</th>
+                  <th class="py-3 px-3 text-right">Total (Incl. GST)</th>
+                  <th class="py-3 px-3 text-center">Status</th>
+                  <th class="py-3 px-3 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="portal-quotes-tbody">
+                <!-- Injected via portal.js -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Mobile Cards Container (shown only on small mobile screens) -->
+          <div id="portal-quotes-mobile-list" class="sm:hidden divide-y divide-slate-100 p-2 space-y-2">
+            <!-- Injected via portal.js -->
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: VENDORS -->
+      <div id="portal-vendors-tab" class="portal-tab-content hidden space-y-5 max-w-7xl mx-auto">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
+          <div>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900">Vendors &amp; Material Suppliers</h3>
+            <p class="text-xs text-slate-500 mt-0.5">Manage Ready Mix Concrete, TMT Steel, Sand, Fabrication, and Shuttering contractors with direct contact links and dues.</p>
+          </div>
+          <button onclick="openAddVendorModal()" class="px-4 py-2.5 bg-blue-700 hover:bg-blue-800 text-white rounded-xl text-xs font-bold flex items-center gap-2 shadow-xs self-start sm:self-auto transition-colors cursor-pointer">
+            <i data-lucide="user-plus" class="w-4 h-4"></i>
+            <span>+ Add Vendor</span>
+          </button>
+        </div>
+
+        <!-- Vendor Category Filters -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-1 text-xs">
+          <button onclick="filterVendorsByCategory('All')" class="vendor-filter-pill px-3 py-1.5 rounded-lg bg-blue-600 text-white font-bold whitespace-nowrap" data-category="All">All Categories</button>
+          <button onclick="filterVendorsByCategory('Cement & RMC')" class="vendor-filter-pill px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-600 hover:text-slate-900 font-medium whitespace-nowrap" data-category="Cement & RMC">Cement &amp; RMC</button>
+          <button onclick="filterVendorsByCategory('TMT Steel')" class="vendor-filter-pill px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-600 hover:text-slate-900 font-medium whitespace-nowrap" data-category="TMT Steel">TMT Steel</button>
+          <button onclick="filterVendorsByCategory('Fabrication')" class="vendor-filter-pill px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-600 hover:text-slate-900 font-medium whitespace-nowrap" data-category="Fabrication">Fabrication</button>
+          <button onclick="filterVendorsByCategory('Shuttering')" class="vendor-filter-pill px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-600 hover:text-slate-900 font-medium whitespace-nowrap" data-category="Shuttering">Shuttering</button>
+          <button onclick="filterVendorsByCategory('Sand & Aggregate')" class="vendor-filter-pill px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-600 hover:text-slate-900 font-medium whitespace-nowrap" data-category="Sand & Aggregate">Sand &amp; Kapchi</button>
+          <button onclick="filterVendorsByCategory('Electrical & Plumbing')" class="vendor-filter-pill px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-600 hover:text-slate-900 font-medium whitespace-nowrap" data-category="Electrical & Plumbing">Electrical &amp; Plumbing</button>
+        </div>
+
+        <div id="portal-vendors-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- Injected via portal.js -->
+        </div>
+      </div>
+
+      <!-- TAB 3: SITE TEAM -->
+      <div id="portal-team-tab" class="portal-tab-content hidden space-y-5 max-w-7xl mx-auto">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
+          <div>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900">Site Engineers &amp; Supervisors</h3>
+            <p class="text-xs text-slate-500 mt-0.5">Oversee site civil engineers, mukadams, bar bending gangs, and storekeepers with named assignments, phones, and project locations.</p>
+          </div>
+          <button onclick="openAddTeamModal()" class="px-4 py-2.5 bg-blue-700 hover:bg-blue-800 text-white rounded-xl text-xs font-bold flex items-center gap-2 shadow-xs self-start sm:self-auto transition-colors cursor-pointer">
+            <i data-lucide="user-check" class="w-4 h-4"></i>
+            <span>+ Add Site Staff / Engineer</span>
+          </button>
+        </div>
+        <div id="portal-team-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- Injected via portal.js -->
+        </div>
+      </div>
+
+      <!-- TAB 4: PROJECTS -->
+      <div id="portal-projects-tab" class="portal-tab-content hidden space-y-5 max-w-7xl mx-auto">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
+          <div>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900">Active Construction Projects &amp; Budgets</h3>
+            <p class="text-xs text-slate-500 mt-0.5">Track contract valuations, certified disbursements, civil work completion percentages, and assigned site engineers.</p>
+          </div>
+          <button onclick="openAddProjectModal()" class="px-4 py-2.5 bg-blue-700 hover:bg-blue-800 text-white rounded-xl text-xs font-bold flex items-center gap-2 shadow-xs self-start sm:self-auto transition-colors cursor-pointer">
+            <i data-lucide="folder-plus" class="w-4 h-4"></i>
+            <span>+ Add New Project</span>
+          </button>
+        </div>
+        <div id="portal-projects-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Injected via portal.js -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: LETTERHEAD PDF PRINT/PREVIEW (Exact WhatsApp Letterhead Replica)   -->
+  <!-- ========================================================================= -->
+  <div id="letterhead-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-2 sm:p-4 bg-slate-950/80 backdrop-blur-xs no-print overflow-y-auto">
+    <div class="relative w-full max-w-4xl bg-white rounded-2xl shadow-2xl my-auto overflow-hidden flex flex-col max-h-[95vh]">
+      
+      <div class="px-6 py-3.5 bg-slate-900 text-white flex items-center justify-between shrink-0 no-print">
+        <div class="flex items-center gap-3">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+          <span class="text-xs font-mono font-semibold uppercase tracking-wider">Official Quotation Letterhead &middot; Ajay Shah &amp; Associates</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="window.print()" class="px-3.5 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-lg flex items-center gap-1.5 shadow-sm">
+            <i data-lucide="printer" class="w-3.5 h-3.5"></i>
+            <span>Print / Save PDF</span>
+          </button>
+          <button onclick="closeLetterheadModal()" class="p-1.5 text-slate-400 hover:text-white rounded-lg">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Printable Area -->
+      <div class="overflow-y-auto p-4 sm:p-8 bg-slate-100 flex justify-center">
+        <div id="printable-letterhead-content" class="w-full max-w-[800px] bg-white p-6 sm:p-10 shadow-md border border-slate-200 text-slate-900 font-sans text-xs sm:text-sm">
+          
+          <!-- Official Letterhead Header (Direct from WhatsApp photo) -->
+          <div class="border-b-2 border-blue-900 pb-4 mb-6">
+            <div class="flex items-center justify-between gap-4">
+              <div class="flex items-center gap-2.5">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-amber-500 bg-amber-50 flex flex-col items-center justify-center p-1 text-center shadow-xs">
+                  <span class="text-lg sm:text-xl font-black text-amber-600 leading-none">30</span>
+                  <span class="text-[7px] font-extrabold text-amber-800 uppercase tracking-tighter">YEARS OF</span>
+                  <span class="text-[6.5px] font-black text-amber-900 uppercase tracking-tighter">EXPERIENCE</span>
+                </div>
+                <div>
+                  <div class="flex items-center gap-1.5">
+                    <span class="text-2xl sm:text-3xl font-black text-blue-900 font-serif tracking-tight">AS</span>
+                    <span class="text-lg sm:text-2xl font-black text-blue-900 tracking-tight">Ajay Shah &amp; Associates</span>
+                  </div>
+                  <div class="text-[10px] sm:text-xs font-black text-amber-700 tracking-widest uppercase">
+                    ENGINEERS &amp; CONTRACTORS
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-right">
+                <div class="text-base sm:text-lg font-bold text-blue-950 font-serif">Ajay H. Shah</div>
+                <div class="text-[11px] font-semibold text-slate-700">(B.E. Civil)</div>
+                <div class="text-xs font-mono font-bold text-blue-900 mt-0.5">M.: 98246 66003</div>
+                <div class="text-[10px] text-slate-500 font-mono">ahshah05@gmail.com</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- To & Date -->
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <div class="font-bold text-slate-800">To,</div>
+              <div id="letterhead-client" class="font-bold text-slate-900 text-sm">Shri Rajeshbhai Patel,</div>
+              <div id="letterhead-company" class="font-medium text-slate-800">The Grand Villa Residence,</div>
+              <div id="letterhead-location" class="text-slate-700">Manjalpur, Vadodara.</div>
+            </div>
+            <div class="text-right font-mono text-xs font-semibold">
+              <span>Date: </span><span id="letterhead-date">19 / 09 / 2026</span>
+            </div>
+          </div>
+
+          <!-- Subject -->
+          <div class="mb-4">
+            <div id="letterhead-subject" class="font-bold text-slate-900 underline text-xs sm:text-sm">
+              Subject: Quotation for Turnkey Residential Bungalow Civil Construction Work.
+            </div>
+          </div>
+
+          <!-- Salutation -->
+          <div class="mb-4 text-xs leading-relaxed text-slate-800">
+            <div>Dear Sir,</div>
+            <div class="mt-1" id="letterhead-opening">
+              With reference to all the architectural drawings given by you and as per our site discussion, we are pleased to submit our quotation for the residential bungalow civil construction at Manjalpur, Vadodara.
+            </div>
+          </div>
+
+          <!-- Table -->
+          <div class="mb-5 overflow-hidden border border-slate-700 rounded-sm">
+            <table class="w-full text-left border-collapse text-xs">
+              <thead class="bg-blue-900 text-white font-bold text-[11px] uppercase">
+                <tr class="divide-x divide-slate-700">
+                  <th class="py-2 px-3 text-center w-12">SR. NO.</th>
+                  <th class="py-2 px-3">ITEM</th>
+                  <th class="py-2 px-3 text-right w-20">QTY</th>
+                  <th class="py-2 px-3 text-right w-20">RATE</th>
+                  <th class="py-2 px-3 text-center w-16">UNIT</th>
+                  <th class="py-2 px-3 text-right w-32">AMOUNT (Rs.)</th>
+                </tr>
+              </thead>
+              <tbody id="letterhead-items-tbody" class="divide-y divide-slate-300">
+                <!-- Dynamically populated -->
+              </tbody>
+              <tfoot class="border-t-2 border-slate-800 font-bold bg-slate-50">
+                <tr class="divide-x divide-slate-300">
+                  <td colspan="5" class="py-1.5 px-3 text-right uppercase text-[11px]">Subtotal:</td>
+                  <td id="letterhead-subtotal" class="py-1.5 px-3 text-right font-mono">₹ 1,10,95,200</td>
+                </tr>
+                <tr class="divide-x divide-slate-300">
+                  <td colspan="5" class="py-1.5 px-3 text-right uppercase text-[11px]" id="letterhead-gst-rate">GST @ 18%:</td>
+                  <td id="letterhead-gst-amount" class="py-1.5 px-3 text-right font-mono">₹ 19,97,136</td>
+                </tr>
+                <tr class="divide-x divide-slate-300 bg-blue-50 text-blue-950 font-black text-sm">
+                  <td colspan="5" class="py-2 px-3 text-right uppercase">TOTAL:</td>
+                  <td id="letterhead-grand-total" class="py-2 px-3 text-right font-mono">₹ 1,30,92,336</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+
+          <!-- Amount in Words -->
+          <div class="p-2.5 bg-slate-100 border border-slate-300 rounded-sm mb-5 text-xs font-semibold italic text-slate-800">
+            <span>Amount in words: </span><span id="letterhead-words">Rupees One Crore Thirty Lakh Ninety-Two Thousand Three Hundred Thirty-Six Only.</span>
+          </div>
+
+          <!-- Notes -->
+          <div class="mb-5 border border-slate-700 rounded-sm overflow-hidden">
+            <div class="bg-blue-900 text-white text-[11px] font-bold px-3 py-1 uppercase">NOTES</div>
+            <div id="letterhead-notes-list" class="p-3 bg-white space-y-1 text-xs text-slate-800">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Scope of Rate -->
+          <div class="mb-6 space-y-1 text-xs text-slate-800">
+            <div class="font-bold underline uppercase text-[11px]">Scope of Rate:</div>
+            <div id="letterhead-scope-list" class="pl-2 space-y-1">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Signature Block -->
+          <div class="flex justify-between items-end pt-4 border-t border-slate-300">
+            <div>
+              <div class="text-[11px] text-slate-500">Client Acceptance:</div>
+              <div class="h-10"></div>
+              <div class="text-xs font-semibold text-slate-700">Signature &amp; Seal</div>
+            </div>
+            <div class="text-right">
+              <div class="text-xs font-bold text-blue-900">For Ajay Shah &amp; Associates</div>
+              <div class="h-8 flex items-center justify-end font-serif text-blue-800 italic text-base">
+                Ajay H. Shah
+              </div>
+              <div class="text-xs font-bold text-slate-900">Ajay H. Shah (B.E. Civil)</div>
+              <div class="text-[10px] text-slate-500 font-mono">Chief Engineer &amp; Contractor</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: QUOTATION CREATOR & COMPREHENSIVE EDITOR                            -->
+  <!-- ========================================================================= -->
+  <div id="quotation-editor-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 backdrop-blur-xs no-print overflow-y-auto">
+    <div class="relative w-full max-w-3xl bg-white rounded-2xl shadow-2xl p-6 sm:p-8 my-auto overflow-y-auto max-h-[92vh]">
+      
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3 mb-4">
+        <div>
+          <h3 id="modal-editor-title" class="text-lg font-bold text-slate-900">Create / Edit Quotation</h3>
+          <p class="text-xs text-slate-500">Edit all quotation letterhead content, line items, rates, notes, and exclusions.</p>
+        </div>
+        <button onclick="closeQuotationEditorModal()" class="p-1.5 text-slate-400 hover:text-slate-700 rounded-lg">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form onsubmit="saveQuotationEditor(event)" class="space-y-4 text-xs">
+        <input type="hidden" id="qedit-id" />
+        
+        <!-- Client Details -->
+        <div class="p-3.5 bg-slate-50 border border-slate-200 rounded-xl space-y-3">
+          <div class="font-bold text-slate-800 text-xs uppercase tracking-wider font-mono">1. Client &amp; Project Information</div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Client Name *</label>
+              <input type="text" id="qedit-client" required placeholder="e.g. Kaushalbhai" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 bg-white" />
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Company / Firm Name *</label>
+              <input type="text" id="qedit-company" required placeholder="e.g. Jyoti Advance Metal Mfg Pvt Ltd" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 bg-white" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Location / Site *</label>
+              <input type="text" id="qedit-location" required placeholder="e.g. Manjalpur, Vadodara" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 bg-white" />
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Quotation Ref No</label>
+              <input type="text" id="qedit-ref" placeholder="e.g. ASA/QUO/2026/0919" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white font-mono" />
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Date</label>
+              <input type="text" id="qedit-date" required class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white font-mono" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div class="sm:col-span-2">
+              <label class="block font-semibold text-slate-700 mb-1">Subject</label>
+              <input type="text" id="qedit-subject" required placeholder="Quotation of civil work as per drawings provided." class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white" />
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Quotation Status</label>
+              <select id="qedit-status" class="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white font-semibold text-slate-800">
+                <option value="Sent">Sent to Client</option>
+                <option value="Draft">Draft</option>
+                <option value="Approved">Approved / Confirmed</option>
+                <option value="Negotiation">Under Discussion</option>
+                <option value="Completed">Completed Work</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Opening Text / Salutation -->
+        <div class="p-3.5 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <div class="font-bold text-slate-800 text-xs uppercase tracking-wider font-mono">2. Letterhead Opening Salutation &amp; Content</div>
+          <p class="text-[11px] text-slate-500">Edit the introductory letter paragraph printed below 'Dear Sir,' in your official letterhead:</p>
+          <textarea id="qedit-opening" rows="2" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white text-slate-800 leading-relaxed"></textarea>
+        </div>
+
+        <!-- Dynamic Civil Items / BOQ -->
+        <div class="p-3.5 bg-slate-50 border border-slate-200 rounded-xl space-y-3">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="font-bold text-slate-800 text-xs uppercase tracking-wider font-mono">3. Civil Scope &amp; Bill of Quantities (BOQ Items)</div>
+              <div class="text-[11px] text-slate-500">Add, edit, or remove multiple item rows with rates and quantities.</div>
+            </div>
+            <button type="button" onclick="addQuotationItemRow()" class="px-3 py-1.5 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded-lg text-xs font-bold flex items-center gap-1 cursor-pointer transition-colors">
+              <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+              <span>+ Add Item Row</span>
+            </button>
+          </div>
+
+          <div id="qedit-items-container" class="space-y-2.5">
+            <!-- Dynamic item rows injected by portal.js -->
+          </div>
+        </div>
+
+        <!-- GST & Totals Summary -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center p-4 bg-blue-50 border border-blue-200 rounded-xl">
+          <div>
+            <label class="block text-xs text-blue-950 font-bold mb-1.5">GST Rate Applied</label>
+            <select id="qedit-gst" onchange="recalcEditorTotal()" class="w-full px-3 py-2 border border-blue-300 rounded-lg bg-white font-mono text-xs font-semibold">
+              <option value="18">GST @ 18% (Standard Construction)</option>
+              <option value="12">GST @ 12% (Government / Works Contract)</option>
+              <option value="5">GST @ 5% (Residential Scheme)</option>
+              <option value="0">Nil / 0% (Tax Exempt)</option>
+            </select>
+          </div>
+          <div class="text-right text-xs space-y-1 bg-white p-3 rounded-lg border border-blue-200">
+            <div class="flex justify-between text-slate-600"><span>Subtotal:</span> <span id="qedit-subtotal-disp" class="font-mono font-bold text-slate-900">₹ 0</span></div>
+            <div class="flex justify-between text-slate-600"><span>GST:</span> <span id="qedit-gst-disp" class="font-mono font-bold text-slate-900">₹ 0</span></div>
+            <div class="flex justify-between text-blue-900 font-bold text-sm pt-1 border-t border-slate-100"><span>Grand Total:</span> <span id="qedit-total-disp" class="font-mono font-black text-blue-900">₹ 0</span></div>
+            <div id="qedit-words-disp" class="text-[10px] text-slate-500 italic text-left pt-1"></div>
+          </div>
+        </div>
+
+        <!-- Content: Notes / Technical Conditions -->
+        <div class="p-3.5 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <div class="font-bold text-slate-800 text-xs uppercase tracking-wider font-mono">4. Quotation Content: Technical Notes (Numbered on Letterhead)</div>
+          <p class="text-[11px] text-slate-500">Enter each note on a new line (e.g. depth of footing, ground levels, slab casting specs):</p>
+          <textarea id="qedit-notes" rows="3" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white text-slate-800 font-sans leading-relaxed"></textarea>
+        </div>
+
+        <!-- Content: Scope of Rate & Exclusions -->
+        <div class="p-3.5 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <div class="font-bold text-slate-800 text-xs uppercase tracking-wider font-mono">5. Quotation Content: Scope of Rate &amp; Exclusions</div>
+          <p class="text-[11px] text-slate-500">Enter each scope condition on a new line (e.g. work up to plaster, excluded items, owner supplied fixtures):</p>
+          <textarea id="qedit-scope" rows="3" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white text-slate-800 font-sans leading-relaxed"></textarea>
+        </div>
+
+        <!-- Content: Payment Terms -->
+        <div class="p-3.5 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <div class="font-bold text-slate-800 text-xs uppercase tracking-wider font-mono">6. Commercial &amp; Payment Terms</div>
+          <textarea id="qedit-payment" rows="2" placeholder="e.g. 15% mobilization advance, running account bills on 15-day cycle based on site measurement." class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white text-slate-800 font-sans leading-relaxed"></textarea>
+        </div>
+
+        <div class="flex justify-end gap-3 pt-3 border-t border-slate-200">
+          <button type="button" onclick="closeQuotationEditorModal()" class="px-4 py-2 border border-slate-300 rounded-lg hover:bg-slate-100 font-semibold cursor-pointer">Cancel</button>
+          <button type="submit" class="px-5 py-2.5 bg-blue-700 hover:bg-blue-800 text-white rounded-lg font-bold shadow-xs cursor-pointer flex items-center gap-1.5">
+            <i data-lucide="check-circle" class="w-4 h-4"></i>
+            <span>Save &amp; View Official Letterhead</span>
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: ADD / EDIT VENDOR (Replaces window.prompt with complete modal)       -->
+  <!-- ========================================================================= -->
+  <div id="vendor-editor-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-xs no-print overflow-y-auto">
+    <div class="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl p-6 sm:p-7 my-auto">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3 mb-4">
+        <div>
+          <h3 id="modal-vendor-title" class="text-lg font-bold text-slate-900">Add Material Vendor</h3>
+          <p class="text-xs text-slate-500">Manage cement, steel, fabrication, sand, or shuttering contractors.</p>
+        </div>
+        <button onclick="closeVendorModal()" class="p-1.5 text-slate-400 hover:text-slate-700 rounded-lg">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form onsubmit="saveVendorModal(event)" class="space-y-3.5 text-xs">
+        <input type="hidden" id="vedit-id" />
+
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1">Company / Firm Name *</label>
+          <input type="text" id="vedit-name" required placeholder="e.g. Kailash RMC &amp; Concrete" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 bg-white" />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Supply Category *</label>
+            <select id="vedit-category" required class="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white font-medium text-slate-800">
+              <option value="Cement & RMC">Cement &amp; RMC</option>
+              <option value="TMT Steel">TMT Steel (Fe 550D)</option>
+              <option value="Fabrication">Structural Steel &amp; Grills</option>
+              <option value="Shuttering">Shuttering &amp; Scaffolding</option>
+              <option value="Sand & Aggregate">Sand &amp; Kapchi</option>
+              <option value="Electrical & Plumbing">Electrical &amp; Plumbing</option>
+              <option value="Brickwork">Brickwork &amp; AAC Blocks</option>
+              <option value="Labour Contractor">Labour Contractor Gang</option>
+              <option value="Civil Materials">Other Civil Materials</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Contact Person</label>
+            <input type="text" id="vedit-contact" placeholder="e.g. Dineshbhai Patel" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Phone Number *</label>
+            <input type="text" id="vedit-phone" required placeholder="+91 98250 11442" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white font-mono" />
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Location / Area</label>
+            <input type="text" id="vedit-city" placeholder="e.g. Makarpura GIDC / Manjalpur, Vadodara" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1">Outstanding Dues (₹)</label>
+          <input type="number" id="vedit-dues" step="any" placeholder="0" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white font-mono" />
+        </div>
+
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1">Material Specs &amp; Notes</label>
+          <input type="text" id="vedit-notes" placeholder="e.g. Ultratech 53 grade cement supplier, 30 days credit" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white" />
+        </div>
+
+        <div class="flex justify-end gap-2 pt-3 border-t border-slate-200">
+          <button type="button" onclick="closeVendorModal()" class="px-4 py-2 border border-slate-300 rounded-lg hover:bg-slate-100 font-semibold cursor-pointer">Cancel</button>
+          <button type="submit" class="px-5 py-2 bg-blue-700 hover:bg-blue-800 text-white rounded-lg font-bold cursor-pointer">Save Vendor</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: ADD / EDIT SITE STAFF & ENGINEER                                   -->
+  <!-- ========================================================================= -->
+  <div id="team-editor-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-xs no-print overflow-y-auto">
+    <div class="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl p-6 sm:p-7 my-auto">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3 mb-4">
+        <div>
+          <h3 id="modal-team-title" class="text-lg font-bold text-slate-900">Add Site Staff / Engineer</h3>
+          <p class="text-xs text-slate-500">Record site civil engineers, supervisors, and mukadams.</p>
+        </div>
+        <button onclick="closeTeamModal()" class="p-1.5 text-slate-400 hover:text-slate-700 rounded-lg">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form onsubmit="saveTeamModal(event)" class="space-y-3.5 text-xs">
+        <input type="hidden" id="tedit-id" />
+
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1">Staff / Engineer Full Name *</label>
+          <input type="text" id="tedit-name" required placeholder="e.g. Er. Dhaval Patel (B.E. Civil)" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 bg-white" />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Role / Designation *</label>
+            <select id="tedit-role" required class="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white font-medium text-slate-800">
+              <option value="Site Civil Engineer">Site Civil Engineer</option>
+              <option value="Junior Project Engineer">Junior Project Engineer</option>
+              <option value="Head Site Supervisor">Head Site Supervisor</option>
+              <option value="RCC & Shuttering Mukadam">RCC &amp; Shuttering Mukadam</option>
+              <option value="Bar Bending Mukadam">Bar Bending Mukadam</option>
+              <option value="Storekeeper & Inward">Storekeeper &amp; Inward</option>
+              <option value="Quality & Safety Officer">Quality &amp; Safety Officer</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Contact Phone *</label>
+            <input type="text" id="tedit-phone" required placeholder="+91 98791 22345" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white font-mono" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Assigned Project / Site *</label>
+            <input type="text" id="tedit-site" required placeholder="e.g. Manjalpur Luxury Villa" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white" />
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Status</label>
+            <select id="tedit-status" class="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white font-medium text-slate-800">
+              <option value="Active">Active on Site</option>
+              <option value="Assigned">Assigned</option>
+              <option value="On Leave">On Leave</option>
+              <option value="Available">Available for New Project</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1">Labour Count / Specialization Notes</label>
+          <input type="text" id="tedit-notes" placeholder="e.g. Manages 22 labours on site, heavy foundation specialist" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white" />
+        </div>
+
+        <div class="flex justify-end gap-2 pt-3 border-t border-slate-200">
+          <button type="button" onclick="closeTeamModal()" class="px-4 py-2 border border-slate-300 rounded-lg hover:bg-slate-100 font-semibold cursor-pointer">Cancel</button>
+          <button type="submit" class="px-5 py-2 bg-blue-700 hover:bg-blue-800 text-white rounded-lg font-bold cursor-pointer">Save Staff Member</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: ADD / EDIT PROJECT & BUDGET                                        -->
+  <!-- ========================================================================= -->
+  <div id="project-editor-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-xs no-print overflow-y-auto">
+    <div class="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl p-6 sm:p-7 my-auto">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3 mb-4">
+        <div>
+          <h3 id="modal-project-title" class="text-lg font-bold text-slate-900">Add Construction Project</h3>
+          <p class="text-xs text-slate-500">Track contract values, certified bills, and civil progress.</p>
+        </div>
+        <button onclick="closeProjectModal()" class="p-1.5 text-slate-400 hover:text-slate-700 rounded-lg">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form onsubmit="saveProjectModal(event)" class="space-y-3.5 text-xs">
+        <input type="hidden" id="pedit-id" />
+
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1">Project Name *</label>
+          <input type="text" id="pedit-title" required placeholder="e.g. The Grand Villa Residence" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 bg-white" />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Project Type</label>
+            <input type="text" id="pedit-type" placeholder="e.g. Residential Bungalow Construction" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white" />
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Client Name</label>
+            <input type="text" id="pedit-client" placeholder="e.g. Rajeshbhai Patel" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Site Location *</label>
+            <input type="text" id="pedit-location" required placeholder="e.g. Manjalpur, Vadodara" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white" />
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Progress Percentage (0-100%)</label>
+            <input type="number" id="pedit-progress" min="0" max="100" placeholder="35" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white font-mono" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Contract Value (₹) *</label>
+            <input type="number" id="pedit-value" step="any" required placeholder="13092336" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white font-mono" />
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Received R.A. Bills (₹)</label>
+            <input type="number" id="pedit-received" step="any" placeholder="4500000" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none bg-white font-mono" />
+          </div>
+        </div>
+
+        <div class="flex justify-end gap-2 pt-3 border-t border-slate-200">
+          <button type="button" onclick="closeProjectModal()" class="px-4 py-2 border border-slate-300 rounded-lg hover:bg-slate-100 font-semibold cursor-pointer">Cancel</button>
+          <button type="submit" class="px-5 py-2 bg-blue-700 hover:bg-blue-800 text-white rounded-lg font-bold cursor-pointer">Save Project</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: QUICK UPDATE VENDOR DUES                                           -->
+  <!-- ========================================================================= -->
+  <div id="dues-quick-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-xs no-print">
+    <div class="relative w-full max-w-sm bg-white rounded-2xl shadow-2xl p-6 my-auto">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3 mb-4">
+        <h3 class="text-base font-bold text-slate-900">Update Vendor Dues</h3>
+        <button onclick="closeQuickDuesModal()" class="p-1 text-slate-400 hover:text-slate-700 rounded-lg">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <form onsubmit="saveQuickDues(event)" class="space-y-3 text-xs">
+        <input type="hidden" id="quick-dues-vendor-id" />
+        <div>
+          <div class="text-slate-500 text-[11px]">Vendor:</div>
+          <div id="quick-dues-vendor-name" class="font-bold text-slate-900 text-sm"></div>
+        </div>
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1">New Outstanding Balance (₹)</label>
+          <input type="number" id="quick-dues-amount" required step="any" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none font-mono text-base font-bold text-amber-800" />
+        </div>
+        <div class="flex justify-end gap-2 pt-2 border-t border-slate-200">
+          <button type="button" onclick="closeQuickDuesModal()" class="px-3 py-1.5 border border-slate-300 rounded-lg hover:bg-slate-100 font-semibold cursor-pointer">Cancel</button>
+          <button type="submit" class="px-4 py-1.5 bg-amber-600 hover:bg-amber-700 text-white rounded-lg font-bold cursor-pointer">Update Balance</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Load Portal Logic Module -->
+  <script src="/portal.js?v=4.0"></script>
+
+  <!-- ========================================================================= -->
+  <!-- JAVASCRIPT: GSAP SCROLL ANIMATION & PAGE INTERACTIONS                     -->
+  <!-- ========================================================================= -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    function togglePasswordVisibility() {
+      const input = document.getElementById('portal-pin-input');
+      const icon = document.getElementById('toggle-pwd-icon');
+      if (!input) return;
+      if (input.type === 'password') {
+        input.type = 'text';
+        if (icon) icon.setAttribute('data-lucide', 'eye-off');
+      } else {
+        input.type = 'password';
+        if (icon) icon.setAttribute('data-lucide', 'eye');
+      }
+      if (window.lucide) window.lucide.createIcons();
+    }
+    window.togglePasswordVisibility = togglePasswordVisibility;
+
+    // Direct robust verification in case portal.js was cached by browser
+    function verifyPortalPin(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      const input = document.getElementById('portal-pin-input');
+      const err = document.getElementById('auth-error-msg');
+      if (!input) return false;
+
+      const raw = input.value || '';
+      // Strip zero-width characters, normalize whitespace
+      const cleanVal = raw.replace(/[\u200B-\u200D\uFEFF]/g, '').trim();
+
+      // Check against Sweta@123 (exact or case-insensitive)
+      const isCorrect = (cleanVal === 'Sweta@123') || (cleanVal.toLowerCase() === 'sweta@123');
+
+      if (isCorrect) {
+        if (err) err.classList.add('hidden');
+        sessionStorage.setItem('asa_portal_auth', 'true');
+        localStorage.setItem('asa_admin_mode', 'true');
+        if (typeof closeAuthModal === 'function') closeAuthModal();
+        if (typeof updateAdminModeUI === 'function') updateAdminModeUI();
+        if (typeof showPortalDashboard === 'function') {
+          showPortalDashboard();
+        } else {
+          const dash = document.getElementById('portal-dashboard-modal');
+          if (dash) dash.classList.remove('hidden');
+          if (typeof switchPortalTab === 'function') switchPortalTab('quotations');
+        }
+        return false;
+      } else {
+        if (err) err.classList.remove('hidden');
+        input.focus();
+        input.select();
+        return false;
+      }
+    }
+    window.verifyPortalPin = verifyPortalPin;
+
+    // GSAP ScrollTrigger Hero Scroll Animation (Fast, responsive scrub: 0.3)
+    gsap.registerPlugin(ScrollTrigger);
+
+    window.addEventListener('DOMContentLoaded', () => {
+      updateAdminModeUI();
+      initHeroScrollAnimation();
+    });
+
+    function updateAdminModeUI() {
+      if (window.ScrollTrigger) {
+        ScrollTrigger.refresh();
+      }
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    }
+
+    function promptAdminLogin() {
+      if (sessionStorage.getItem('asa_portal_auth') === 'true') {
+        if (typeof showPortalDashboard === 'function') {
+          showPortalDashboard();
+        } else {
+          const dash = document.getElementById('portal-dashboard-modal');
+          if (dash) dash.classList.remove('hidden');
+          if (typeof switchPortalTab === 'function') switchPortalTab('quotations');
+        }
+      } else {
+        if (typeof showAuthModal === 'function') {
+          showAuthModal();
+        } else {
+          const modal = document.getElementById('portal-auth-modal');
+          if (modal) modal.classList.remove('hidden');
+        }
+      }
+    }
+
+    function toggleMobileNav() {
+      const menu = document.getElementById('mobile-nav-menu');
+      if (menu) {
+        menu.classList.toggle('hidden');
+      }
+    }
+
+    function initHeroScrollAnimation() {
+      const heroTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: '#hero-section',
+          start: () => 'top 72px',
+          end: 'bottom bottom',
+          scrub: 0.3,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        }
+      });
+
+      // A. Hero text drifts up and fades
+      heroTimeline.to('#hero-text-block', {
+        y: -80,
+        opacity: 0,
+        scale: 0.94,
+        ease: 'power2.out',
+        duration: 0.35,
+      }, 0);
+
+      // B. House image scales down gracefully into framed card
+      heroTimeline.fromTo('#hero-house-img', 
+        { scale: 1.15 },
+        { scale: 1.0, ease: 'none', duration: 1 },
+        0
+      );
+
+      heroTimeline.fromTo('#house-card',
+        { 
+          scale: 1.05, 
+          borderRadius: '1rem',
+          boxShadow: '0 20px 50px -10px rgba(0,0,0,0.2)'
+        },
+        { 
+          scale: 0.90, 
+          borderRadius: '2rem',
+          boxShadow: '0 35px 100px -15px rgba(0,0,0,0.4)',
+          ease: 'none', 
+          duration: 1 
+        },
+        0
+      );
+
+      // C. Floating callouts reveal
+      heroTimeline.fromTo('#callout-1', { opacity: 0, scale: 0.7, y: 15 }, { opacity: 1, scale: 1, y: 0, duration: 0.25, ease: 'back.out(1.5)' }, 0.20);
+      heroTimeline.fromTo('#callout-2', { opacity: 0, scale: 0.7, y: 15 }, { opacity: 1, scale: 1, y: 0, duration: 0.25, ease: 'back.out(1.5)' }, 0.35);
+      heroTimeline.fromTo('#callout-3', { opacity: 0, scale: 0.7, y: 15 }, { opacity: 1, scale: 1, y: 0, duration: 0.25, ease: 'back.out(1.5)' }, 0.50);
+      heroTimeline.fromTo('#callout-4', { opacity: 0, scale: 0.7, y: 15 }, { opacity: 1, scale: 1, y: 0, duration: 0.25, ease: 'back.out(1.5)' }, 0.65);
+
+      // D. Scroll hint fades away
+      heroTimeline.to('#hero-scroll-hint', { opacity: 0, y: 10, duration: 0.15 }, 0.05);
+    }
+
+    // In-page smooth link navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#' || !href) return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Close modals on Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        if (typeof closeAuthModal === 'function') closeAuthModal();
+        if (typeof closePortalDashboard === 'function') closePortalDashboard();
+        if (typeof closeLetterheadModal === 'function') closeLetterheadModal();
+        if (typeof closeQuotationEditorModal === 'function') closeQuotationEditorModal();
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ajay Shah &amp; Associates — Engineers &amp; Contractors | Er. Ajay H. Shah (B.E. Civil)</title>
+  <meta name="description" content="Ajay Shah &amp; Associates - Er. Ajay H. Shah (B.E. Civil). 30+ Years Construction Experience in Industrial Sheds, Factories, and Heavy Civil Engineering. Builder Portal &amp; Quotation Management." />
+  <meta property="og:title" content="Ajay Shah &amp; Associates — Engineers &amp; Contractors" />
+  <meta property="og:description" content="30+ Years Construction Experience in Industrial Sheds, Heavy RCC, and Civil Contracting. Er. Ajay H. Shah (B.E. Civil)." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts: Playfair Display (Serif), Plus Jakarta Sans (Sans), JetBrains Mono (Mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            stone: {
+              50: '#FBFBF9',
+              100: '#F5F5F0',
+              200: '#E7E5E0',
+              300: '#D6D3CC',
+              400: '#A8A49A',
+              500: '#78746C',
+              600: '#57534D',
+              700: '#44403C',
+              800: '#292524',
+              900: '#1C1917',
+              950: '#0C0A09',
+            },
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+              950: '#0f172a',
+            },
+            amber: {
+              500: '#C28E5C',
+              600: '#A57344',
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- GSAP 3 & ScrollTrigger via CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* Architectural Custom Utilities */
+    ::selection {
+      background-color: #1e3a8a;
+      color: #ffffff;
+    }
+
+    .bg-blueprint {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(30, 58, 138, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(30, 58, 138, 0.04) 1px, transparent 1px);
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Print styles: Print only clean A4 Letterhead */
+    @media print {
+      body {
+        background: white;
+      }
+      /* Remove main site content from the document layout flow entirely */
+      #main-header, #hero-section, section, footer, #portal-dashboard-modal, #portal-auth-modal {
+        display: none !important;
+      }
+      
+      #letterhead-modal {
+        display: block !important;
+        position: relative !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: white !important;
+      }
+      
+      #printable-letterhead-content, #printable-letterhead-content * {
+        visibility: visible;
+      }
+      
+      #printable-letterhead-content {
+        position: relative !important;
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+        background: white !important;
+        color: black !important;
+      }
+      
+      .no-print {
+        display: none !important;
+      }
+    }
+
+    :root {
+      --header-offset: 72px;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased transition-colors duration-300 selection:bg-[#8C6239] selection:text-white">
+  <!-- ========================================================================= -->
+  <!-- 1. STICKY HEADER (Clean & Uncluttered Navigation)                         -->
+  <!-- ========================================================================= -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-transparent border-b border-transparent transition-all duration-300 no-print text-white">
+
+    <!-- Main Navigation Bar (Clean & uncluttered for regular clients & visitors) -->
+    <div class="w-full max-w-[1920px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 h-24 flex items-center justify-between">
+      
+      <!-- Brand Monogram matching Dad's Letterhead -->
+      <a href="#" class="group flex items-center gap-3 shrink-0" title="Ajay Shah & Associates">
+        <div class="w-10 h-10 rounded-lg bg-[#C49A6C] text-white flex items-center justify-center font-serif font-black text-lg shadow-sm border border-[#E6CBA8] shrink-0">
+          AS
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif text-lg sm:text-xl font-bold tracking-tight group-hover:text-[#C49A6C] transition-colors leading-tight">
+            Ajay Shah &amp; Associates
+          </span>
+          <div class="hidden sm:block text-[10px] font-mono uppercase tracking-widest opacity-70 font-semibold leading-tight mt-0.5">
+            Civil Engineers &amp; Home Builders &middot; Er. Ajay H. Shah
+          </div>
+        </div>
+      </a>
+
+      <!-- Clean text navigation links -->
+      <nav class="hidden lg:flex items-center gap-8 xl:gap-12 text-sm uppercase tracking-widest font-bold">
+        <a href="#projects" class="hover:text-[#C49A6C] transition-colors py-1">Works</a>
+        <a href="#services" class="hover:text-[#C49A6C] transition-colors py-1">Civil Services</a>
+        <a href="#process" class="hover:text-[#C49A6C] transition-colors py-1">Build Process</a>
+        <a href="#philosophy" class="hover:text-[#C49A6C] transition-colors py-1">Philosophy</a>
+        <a href="#contact" class="hover:text-[#C49A6C] transition-colors py-1">Contact</a>
+      </nav>
+
+      <!-- Primary actions: Portal Login and Contact -->
+      <div class="flex items-center gap-2.5 sm:gap-3 shrink-0">
+        
+
+
+        <a href="#contact" class="inline-flex items-center gap-2 px-3 py-2 sm:px-5 sm:py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm transition-all cursor-pointer">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-[#E6CBA8] shrink-0"></i>
+          <span class="hidden sm:inline">Contact Us</span>
+        </a>
+
+        <!-- Mobile Navigation Toggle -->
+        <button onclick="toggleMobileNav()" class="lg:hidden p-2 text-slate-700 hover:text-slate-900 rounded-lg hover:bg-slate-200/50 transition-colors" aria-label="Toggle navigation menu">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobile-nav-menu" class="hidden lg:hidden border-t border-slate-200 bg-slate-50 px-4 py-3 space-y-2 text-xs uppercase tracking-wider font-semibold font-mono">
+      <a href="#projects" onclick="toggleMobileNav()" class="block py-2 text-slate-700 hover:text-[#8C6239]">Works &amp; Homes</a>
+      <a href="#services" onclick="toggleMobileNav()" class="block py-2 text-slate-700 hover:text-[#8C6239]">Civil Services &amp; Rates</a>
+      <a href="#philosophy" onclick="toggleMobileNav()" class="block py-2 text-slate-700 hover:text-[#8C6239]">Building Philosophy</a>
+      <a href="#process" onclick="toggleMobileNav()" class="block py-2 text-slate-700 hover:text-[#8C6239]">Build Process</a>
+      <a href="#contact" onclick="toggleMobileNav()" class="block py-2 text-slate-700 hover:text-[#8C6239]">Contact &amp; Details</a>
+      <div class="pt-2 border-t border-slate-200">
+        <a href="#contact" onclick="toggleMobileNav()" class="block w-full py-2.5 bg-slate-900 text-white text-center rounded-lg font-bold">
+          Contact Er. Ajay Shah
+        </a>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- 3. HERO SECTION & SCROLL ANIMATION (Animated House Visual Feature)        -->
+  <!-- ========================================================================= -->
+  <section id="hero-section" class="relative bg-slate-50 transition-colors duration-500">
+    
+    <!-- Pinned Container: Full screen video -->
+    <div id="hero-pinned-container" class="sticky top-0 w-full overflow-hidden flex flex-col items-center justify-start select-none h-[100vh]">
+      
+      <!-- Video Background -->
+      <div class="absolute inset-0 z-0 bg-slate-950 overflow-hidden">
+        <video id="v0" tabindex="0" preload="auto" muted playsinline class="w-full h-full object-cover object-center transform origin-center select-none will-change-transform opacity-90">
+            <source src="video.mp4" type="video/mp4">
+        </video>
+        <!-- Heavy Vignette to make text readable at top and blend -->
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-transparent to-slate-950/50 pointer-events-none"></div>
+      </div>
+
+
+
+
+      
+      <!-- Bottom Hint Bar (Scroll to examine) -->
+      <div id="hero-scroll-hint" class="absolute bottom-20 sm:bottom-12 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center gap-2 text-white font-mono opacity-80 pointer-events-none">
+        <span class="w-2 h-2 rounded-full bg-[#D4A373] animate-ping"></span>
+        <span class="tracking-widest uppercase text-[9px] font-bold drop-shadow-md">Scroll to explore</span>
+      </div>
+
+    </div>
+
+    <!-- Scroll Spacer: gives tight responsive distance for GSAP pin scrub before releasing -->
+    <div id="hero-scroll-track" class="h-[50vh] w-full pointer-events-none"></div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 3.5 INTRODUCTION TEXT & CTA                                               -->
+  <!-- ========================================================================= -->
+  <section class="relative z-20 bg-slate-50 py-16 text-center px-4 sm:px-8 border-b border-slate-200">
+    <div class="max-w-4xl mx-auto flex flex-col items-center">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl text-slate-900 font-serif mb-10 font-black leading-tight text-balance tracking-tight">
+        Crafting Vadodara’s Finest Luxury Residences with 30 Years of Engineering Precision.
+      </h2>
+
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="#projects" class="px-8 py-4 bg-slate-900 text-white text-xs sm:text-sm uppercase tracking-widest font-bold rounded-full inline-flex items-center gap-2 hover:bg-slate-800 transition-all shadow-md">
+          <span>Explore Portfolio &amp; Works</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <a href="#contact" class="px-8 py-4 bg-white border border-slate-300 text-slate-800 text-xs sm:text-sm uppercase tracking-widest font-semibold rounded-full hover:border-slate-900 transition-all">
+          Inquire for Home Building
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 4. CREDIBILITY & METRICS BAR (4-Column Stat Bar)                          -->
+  <!-- ========================================================================= -->
+  <section class="relative z-20 bg-slate-100 border-y border-slate-200 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0 divide-y md:divide-y-0 md:divide-x divide-slate-200">
+        
+        <div class="flex flex-col items-center text-center px-4 pt-4 md:pt-0">
+          <div class="text-4xl sm:text-5xl font-serif font-bold text-slate-900 tabular-nums">
+            30<span class="text-[#D4A373]">+</span>
+          </div>
+          <div class="text-xs uppercase tracking-widest font-mono text-slate-600 mt-2 font-bold">
+            Years Experience
+          </div>
+          <div class="text-[11px] text-slate-500 mt-1">
+            Engineers &amp; Home Builders Legacy
+          </div>
+        </div>
+
+        <div class="flex flex-col items-center text-center px-4 pt-4 md:pt-0">
+          <div class="text-4xl sm:text-5xl font-serif font-bold text-slate-900 tabular-nums">
+            180<span class="text-[#C49A6C]">+</span>
+          </div>
+          <div class="text-xs uppercase tracking-widest font-mono text-slate-600 mt-2 font-bold">
+            Delivered Builds
+          </div>
+          <div class="text-[11px] text-slate-500 mt-1">
+            Luxury Bungalows &amp; Commercial Builds
+          </div>
+        </div>
+
+        <div class="flex flex-col items-center text-center px-4 pt-4 md:pt-0">
+          <div class="text-4xl sm:text-5xl font-serif font-bold text-slate-900 tabular-nums">
+            100<span class="text-[#C49A6C]">%</span>
+          </div>
+          <div class="text-xs uppercase tracking-widest font-mono text-slate-600 mt-2 font-bold">
+            Drawing Compliance
+          </div>
+          <div class="text-[11px] text-slate-500 mt-1">
+            Architectural &amp; Structural Standards
+          </div>
+        </div>
+
+        <div class="flex flex-col items-center text-center px-4 pt-4 md:pt-0">
+          <div class="text-4xl sm:text-5xl font-serif font-bold text-slate-900 tabular-nums">
+            250<span class="text-[#8C6239]">+</span>
+          </div>
+          <div class="text-xs uppercase tracking-widest font-mono text-slate-600 mt-2 font-bold">
+            Homes &amp; Projects
+          </div>
+          <div class="text-[11px] text-slate-500 mt-1">
+            Manjalpur, Makarpura &amp; Akota
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+    <!-- ========================================================================= -->
+  <!-- 5. SELECTED PROJECTS SHOWCASE                                             -->
+  <!-- ========================================================================= -->
+  <section id="projects" class="py-24 bg-slate-100 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-slate-500 font-bold block mb-2">Selected Works</span>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-slate-900">
+            Featured Homes &amp; Commercial Builds.
+          </h2>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <a href="#contact" class="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-lg shadow-sm flex items-center gap-1.5 transition-colors">
+            <i data-lucide="mail" class="w-3.5 h-3.5 text-[#E6CBA8]"></i>
+            <span>Inquire for Site Construction &rarr;</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Project 1: Manjalpur Luxury Residence -->
+        <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm transition-all hover:shadow-md">
+          <div class="relative aspect-[16/10] bg-slate-300 overflow-hidden">
+            <img src="house.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80'" alt="Manjalpur Luxury Residence" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+            <div class="absolute top-4 right-4 px-3 py-1 bg-[#8C6239]/90 text-white rounded-full text-[10px] font-mono font-bold uppercase tracking-wider">
+              Manjalpur &middot; 2026
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end text-white">
+              <div>
+                <span class="text-[10px] font-mono text-[#E6CBA8] uppercase font-bold">Luxury Residential Bungalow</span>
+                <div class="text-base font-serif font-bold">The Grand Villa Residence</div>
+              </div>
+              <div class="text-xs font-mono font-bold text-[#E6CBA8]">₹ 85,00,000</div>
+            </div>
+          </div>
+          <div class="p-6 flex items-center justify-between">
+            <div>
+              <div class="text-xs text-slate-500">4,850 S. FT Ground + 2 luxury home with earthquake-resistant RCC frame and double-coat plaster.</div>
+              <div class="text-xs font-mono text-[#C49A6C] font-bold mt-1">Client: Rajeshbhai Patel &middot; Status: Handed Over</div>
+            </div>
+            <a href="#contact" class="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-[#8C6239] group-hover:text-white flex items-center justify-center transition-colors" title="Contact about similar project">
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 2: Akota Commercial Arcade -->
+        <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm transition-all hover:shadow-md">
+          <div class="relative aspect-[16/10] bg-slate-300 overflow-hidden">
+            <img src="project_lakeview.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80'" alt="Commercial Arcade" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+            <div class="absolute top-4 right-4 px-3 py-1 bg-[#8C6239]/90 text-white rounded-full text-[10px] font-mono font-bold uppercase tracking-wider">
+              Akota &middot; 2025
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end text-white">
+              <div>
+                <span class="text-[10px] font-mono text-[#E6CBA8] uppercase font-bold">Commercial Complex &amp; Showrooms</span>
+                <div class="text-base font-serif font-bold">Apex Commercial Arcade</div>
+              </div>
+              <div class="text-xs font-mono font-bold text-[#E6CBA8]">₹ 1,45,00,000</div>
+            </div>
+          </div>
+          <div class="p-6 flex items-center justify-between">
+            <div>
+              <div class="text-xs text-slate-500">16,500 S. FT multi-storey commercial complex with heavy RCC columns, premium elevation, and basement parking.</div>
+              <div class="text-xs font-mono text-[#C49A6C] font-bold mt-1">Client: Jitubhai Patel &middot; Status: 85% Complete</div>
+            </div>
+            <a href="#contact" class="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-[#8C6239] group-hover:text-white flex items-center justify-center transition-colors" title="Contact about similar project">
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+<!-- ========================================================================= -->
+  <!-- 6. SERVICES & CAPABILITIES                                                -->
+  <!-- ========================================================================= -->
+  <section id="services" class="py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-slate-200">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-[#C49A6C] font-bold block mb-2">Our Capabilities</span>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-slate-900">
+            Disciplined Home Building &amp; Commercial Contracting.
+          </h2>
+        </div>
+        <p class="mt-4 md:mt-0 text-sm text-slate-600 max-w-md font-sans leading-relaxed">
+          Led by Er. Ajay H. Shah (B.E. Civil). Single-source accountability for custom residential homes, luxury bungalows, duplexes, and commercial complexes across Vadodara.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <div class="p-8 rounded-2xl bg-white border border-slate-200 hover:border-slate-900 transition-all flex flex-col justify-between hover:shadow-lg">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-[#F5E6D3] text-[#8C6239] flex items-center justify-center mb-6">
+              <i data-lucide="home" class="w-6 h-6"></i>
+            </div>
+            <div class="text-xs font-mono uppercase tracking-widest text-slate-400 mb-2">01 / RESIDENTIAL</div>
+            <h3 class="text-xl font-serif font-bold text-slate-900 mb-3">Custom Homes &amp; Flats</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Turnkey residential construction from foundation to final finish. We build luxury bungalows, modern duplexes, and multi-family residential flats tailored to your lifestyle.
+            </p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between text-xs font-mono text-slate-500">
+            <span>Bungalows &middot; Apartments</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </div>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-white border border-slate-200 hover:border-slate-900 transition-all flex flex-col justify-between hover:shadow-lg">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-[#F5E6D3] text-[#8C6239] flex items-center justify-center mb-6">
+              <i data-lucide="building-2" class="w-6 h-6"></i>
+            </div>
+            <div class="text-xs font-mono uppercase tracking-widest text-slate-400 mb-2">02 / COMMERCIAL</div>
+            <h3 class="text-xl font-serif font-bold text-slate-900 mb-3">Commercial Complexes</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Multi-storey commercial office buildings, retail showrooms, and industrial structures engineered with high-load RCC columns and flexible open floor spans.
+            </p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between text-xs font-mono text-slate-500">
+            <span>Offices &middot; Showrooms</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </div>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-white border border-slate-200 hover:border-slate-900 transition-all flex flex-col justify-between hover:shadow-lg">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-[#F5E6D3] text-[#8C6239] flex items-center justify-center mb-6">
+              <i data-lucide="store" class="w-6 h-6"></i>
+            </div>
+            <div class="text-xs font-mono uppercase tracking-widest text-slate-400 mb-2">03 / RENOVATION</div>
+            <h3 class="text-xl font-serif font-bold text-slate-900 mb-3">Shops &amp; Interior Renovation</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Complete structural remodeling and aesthetic upgrades for retail shops, storefronts, and commercial interiors to modernize your business space.
+            </p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between text-xs font-mono text-slate-500">
+            <span>Retail &middot; Fit-outs</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </div>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-white border border-slate-200 hover:border-slate-900 transition-all flex flex-col justify-between hover:shadow-lg">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-[#F5E6D3] text-[#8C6239] flex items-center justify-center mb-6">
+              <i data-lucide="hammer" class="w-6 h-6"></i>
+            </div>
+            <div class="text-xs font-mono uppercase tracking-widest text-slate-400 mb-2">04 / REBUILT</div>
+            <h3 class="text-xl font-serif font-bold text-slate-900 mb-3">Rebuilding &amp; Reconstruction</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Safe demolition and full-scale reconstruction of aging properties. We transform old structures into modern, highly-engineered safe havens.
+            </p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between text-xs font-mono text-slate-500">
+            <span>Structural Upgrades</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 7. OUR 4-STAGE HOME & COMMERCIAL BUILDING PROCESS                         -->
+  <!-- ========================================================================= -->
+  <section id="process" class="py-24 bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-mono uppercase tracking-widest text-[#C49A6C] font-bold block mb-2">Systematic Execution</span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-slate-900">
+          Our 4-Stage Home &amp; Commercial Building Process.
+        </h2>
+        <p class="text-sm text-slate-600 mt-4 leading-relaxed font-sans">
+          From initial blueprint study to turnkey key handover, every milestone is supervised by Er. Ajay H. Shah with transparent rate calculations and structural rigor.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 relative flex flex-col justify-between">
+          <div>
+            <div class="text-2xl font-serif font-black text-[#C49A6C] mb-3">01</div>
+            <h4 class="font-bold text-slate-900 text-base mb-2">Soil Survey &amp; Foundation</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Thorough site inspection across Manjalpur, Akota, or Makarpura. Soil bearing testing, 2.1M depth footing excavation, and anti-termite treatment.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-200 text-[11px] font-mono text-slate-500 font-bold">
+            STAGE 1: GROUND ZERO
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 relative flex flex-col justify-between">
+          <div>
+            <div class="text-2xl font-serif font-black text-[#C49A6C] mb-3">02</div>
+            <h4 class="font-bold text-slate-900 text-base mb-2">Heavy RCC Framing</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Casting high-grade columns, plinth beams, and slabs using certified UltraTech concrete and Tata Tiscon Fe 550D TMT steel with strict curing cycles.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-200 text-[11px] font-mono text-slate-500 font-bold">
+            STAGE 2: STRUCTURAL FRAME
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 relative flex flex-col justify-between">
+          <div>
+            <div class="text-2xl font-serif font-black text-[#C49A6C] mb-3">03</div>
+            <h4 class="font-bold text-slate-900 text-base mb-2">Masonry &amp; Plastering</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Precision red brick or AAC block masonry, electrical &amp; plumbing conduit embedding, and double-coat sand face exterior plaster finish.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-200 text-[11px] font-mono text-slate-500 font-bold">
+            STAGE 3: CIVIL FINISHING
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 relative flex flex-col justify-between">
+          <div>
+            <div class="text-2xl font-serif font-black text-[#C49A6C] mb-3">04</div>
+            <h4 class="font-bold text-slate-900 text-base mb-2">Waterproofing &amp; Handover</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Multi-layer terrace and toilet waterproofing, quality audit checklist, itemized final bill verification, and joyful turnkey home handover.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-200 text-[11px] font-mono text-slate-500 font-bold">
+            STAGE 4: TURNKEY DELIVERY
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 8. PHILOSOPHY & BLUEPRINT INTERACTIVE SECTION                             -->
+  <!-- ========================================================================= -->
+  <section id="philosophy" class="py-24 bg-slate-950 relative overflow-hidden">
+    <!-- Subtle Blueprint Grid Background -->
+    <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px); background-size: 40px 40px;"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+        
+        <!-- Text & Spec Cards -->
+        <div class="lg:col-span-6 space-y-8">
+          <div class="inline-flex items-center gap-3">
+            <span class="w-12 h-[2px] bg-[#C49A6C]"></span>
+            <span class="text-xs font-mono uppercase tracking-widest text-[#C49A6C] font-bold">Our Philosophy</span>
+          </div>
+          
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-black text-white leading-tight">
+            Engineering masterpieces built on <span class="italic text-[#C49A6C] font-light">trust and brilliance</span>.
+          </h2>
+          
+          <p class="text-sm sm:text-base text-slate-400 font-sans leading-relaxed">
+            We believe that true luxury lies in the details. From the first structural concept to the final polished surface, our approach is rooted in uncompromising quality and absolute perfection. We don't just build houses; we craft enduring legacies that stand the test of time.
+          </p>
+          
+          <div class="grid grid-cols-1 gap-4 pt-4">
+            <!-- Glassmorphism Spec Cards -->
+            <div class="flex items-start gap-4 p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 hover:-translate-y-1 transition-all duration-300">
+              <div class="w-10 h-10 shrink-0 rounded-full bg-[#C49A6C]/20 flex items-center justify-center">
+                <i data-lucide="shield" class="w-5 h-5 text-[#C49A6C]"></i>
+              </div>
+              <div>
+                <h4 class="text-white font-bold text-sm mb-1">Uncompromising Integrity</h4>
+                <p class="text-xs text-slate-400">Every project begins with a foundation engineered to last for generations.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4 p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 hover:-translate-y-1 transition-all duration-300">
+              <div class="w-10 h-10 shrink-0 rounded-full bg-[#C49A6C]/20 flex items-center justify-center">
+                <i data-lucide="gem" class="w-5 h-5 text-[#C49A6C]"></i>
+              </div>
+              <div>
+                <h4 class="text-white font-bold text-sm mb-1">Premium Craftsmanship</h4>
+                <p class="text-xs text-slate-400">We meticulously select only the highest grade materials for unparalleled finish.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4 p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 hover:-translate-y-1 transition-all duration-300">
+              <div class="w-10 h-10 shrink-0 rounded-full bg-[#C49A6C]/20 flex items-center justify-center">
+                <i data-lucide="eye" class="w-5 h-5 text-[#C49A6C]"></i>
+              </div>
+              <div>
+                <h4 class="text-white font-bold text-sm mb-1">Absolute Transparency</h4>
+                <p class="text-xs text-slate-400">Experience complete peace of mind with clear, milestone-based reporting.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual / Image Side -->
+        <div class="lg:col-span-6 relative">
+          <!-- Decorative Background Glow -->
+          <div class="absolute -inset-4 bg-[#C49A6C]/20 blur-3xl rounded-full opacity-60 z-0 pointer-events-none transition-opacity duration-700 group-hover:opacity-100"></div>
+          
+          <div class="relative z-10 rounded-2xl overflow-hidden border-2 border-white/10 shadow-2xl aspect-[4/5]">
+            <img src="philosophy_building.jpg" alt="Modern Residential and Commercial Architecture" class="w-full h-full object-cover object-center" />
+            
+            <!-- Overlay Info Box -->
+            <div class="absolute bottom-6 left-6 right-6 bg-slate-950/80 backdrop-blur-md p-5 rounded-xl border border-white/10 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+              <div class="flex justify-between items-center mb-3">
+                <span class="text-[10px] font-mono text-[#C49A6C] uppercase tracking-widest border border-[#C49A6C]/50 px-2.5 py-1 rounded-full">Vision</span>
+                <span class="text-[10px] font-mono text-slate-400">EST. 1996</span>
+              </div>
+              <h3 class="text-white font-serif font-bold text-lg leading-tight mb-1.5">Redefining Luxury Living</h3>
+              <p class="text-xs text-slate-400">Where architectural vision meets engineering reality</p>
+            </div>
+          </div>
+          
+          <!-- Floating Badge -->
+          <div class="absolute -right-4 md:-right-8 top-1/4 bg-slate-900 p-4 rounded-2xl shadow-xl border border-slate-700 z-20 flex flex-col items-center gap-1 hidden sm:flex animate-bounce" style="animation-duration: 4s;">
+            <div class="w-12 h-12 rounded-full border border-[#C49A6C] bg-slate-950 flex flex-col items-center justify-center p-0.5 text-center">
+              <span class="text-xl font-black text-[#C49A6C] leading-none tracking-tighter">30</span>
+              <span class="text-[5px] font-extrabold text-[#C49A6C] uppercase tracking-wider mt-0.5">YEARS</span>
+            </div>
+            <span class="text-[9px] font-black uppercase tracking-widest text-slate-300 mt-1">Trust &amp;</span>
+            <span class="text-[11px] font-bold text-[#C49A6C] font-serif">Integrity</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 9. TESTIMONIAL QUOTE                                                      -->
+  <!-- ========================================================================= -->
+  <section class="py-20 bg-slate-950 text-white text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <i data-lucide="quote" class="w-10 h-10 text-[#E6CBA8] mx-auto mb-6"></i>
+      <blockquote class="text-2xl sm:text-3xl font-serif leading-snug mb-6 text-slate-100">
+        &ldquo;Er. Ajay Shah built our family home in Manjalpur with utmost dedication and precision. His quotation was transparent to the last rupee, the structural civil work is top notch, and after 30 years in Vadodara, his reputation for honesty is completely unmatched.&rdquo;
+      </blockquote>
+      <div class="font-serif font-bold text-lg text-white">Rajeshbhai Patel</div>
+      <div class="text-xs font-mono text-[#E6CBA8] uppercase tracking-widest mt-1">Homeowner &middot; Manjalpur, Vadodara</div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 10. CONTACT & FOOTER                                                     -->
+  <!-- ========================================================================= -->
+  <footer id="contact" class="bg-slate-900 text-slate-300 pt-16 pb-12 border-t border-slate-800 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-slate-800">
+        
+        <div class="md:col-span-5 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-[#C49A6C] text-white flex items-center justify-center font-serif font-black text-lg">AS</div>
+            <div>
+              <span class="font-serif text-xl font-bold text-white block">Ajay Shah &amp; Associates</span>
+              <span class="text-xs font-mono text-[#E6CBA8] font-bold uppercase">Civil Engineers &amp; Home Builders</span>
+            </div>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed font-sans max-w-sm">
+            Over three decades of bespoke home building, luxury residential bungalows, commercial complexes, and structural civil contracting across Vadodara.
+          </p>
+          <div class="pt-1 text-xs font-mono space-y-1.5 text-slate-400">
+            <div>Principal: <span class="text-white font-bold">Er. Ajay H. Shah (B.E. Civil)</span></div>
+            <div>Locations: Vadodara &middot; Manjalpur &middot; Makarpura &middot; Akota</div>
+          </div>
+        </div>
+
+        <div class="md:col-span-3 space-y-3">
+          <div class="text-xs font-mono uppercase tracking-widest text-white font-bold">Civil Contracting</div>
+          <ul class="space-y-2 text-xs text-slate-400">
+            <li>Custom Luxury Homes &amp; Bungalows</li>
+            <li>Modern Residential Duplexes &amp; Villas</li>
+            <li>Commercial Complexes &amp; Showrooms</li>
+            <li>Heavy RCC Structural Contracting</li>
+            <li>Transparent Quotations &amp; Rate Analysis</li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-4 space-y-3">
+          <div class="text-xs font-mono uppercase tracking-widest text-white font-bold">Vadodara Wide Operations</div>
+          <p class="text-xs text-slate-400 leading-relaxed font-sans">
+            Headquartered near Manjalpur, Vadodara with dedicated site supervisory presence across Manjalpur, Makarpura, Akota, and all over Vadodara. Direct consultations and site visits by Er. Ajay H. Shah (B.E. Civil).
+          </p>
+          <div class="pt-2 flex flex-col gap-2.5">
+            <a href="tel:+919824666003" class="inline-flex items-center gap-2 text-xs font-mono text-[#E6CBA8] hover:text-[#E6CBA8] font-bold">
+              <i data-lucide="phone-call" class="w-3.5 h-3.5 shrink-0"></i>
+              <span>+91 98246 66003 (Er. Ajay Shah)</span>
+            </a>
+            <a href="mailto:ahshah05@gmail.com" class="inline-flex items-center gap-2 text-xs font-mono text-[#E6CBA8] hover:text-[#E6CBA8] font-semibold">
+              <i data-lucide="mail" class="w-3.5 h-3.5 shrink-0"></i>
+              <span>ahshah05@gmail.com</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-slate-500 gap-4">
+        <div>&copy; 2026 AJAY SHAH &amp; ASSOCIATES. ALL RIGHTS RESERVED.</div>
+        <div class="flex items-center gap-4">
+          
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+
+  <!-- Load Portal Logic Module -->
+
+  <!-- ========================================================================= -->
+  <!-- JAVASCRIPT: GSAP SCROLL ANIMATION & PAGE INTERACTIONS                     -->
+  <!-- ========================================================================= -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+
+    // GSAP ScrollTrigger Hero Scroll Animation (Fast, responsive scrub: 0.3)
+    gsap.registerPlugin(ScrollTrigger);
+
+    window.addEventListener('DOMContentLoaded', () => {
+      initHeroScrollAnimation();
+    });
+
+    function toggleMobileNav() {
+      const menu = document.getElementById('mobile-nav-menu');
+      if (menu) {
+        menu.classList.toggle('hidden');
+      }
+    }
+
+    function initHeroScrollAnimation() {
+      const heroTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: '#hero-section',
+          start: () => 'top 72px',
+          end: 'bottom bottom',
+          scrub: 0.3,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        }
+      });
+
+
+
+      // B. Video scales down gracefully into framed card
+      heroTimeline.fromTo('#v0', 
+        { scale: 1.15 },
+        { scale: 1.0, ease: 'none', duration: 1 },
+        0
+      );
+
+      // B. Video scales slightly inside its full-bleed container for a parallax feel
+      heroTimeline.fromTo('#v0', 
+        { scale: 1.10 },
+        { scale: 1.0, ease: 'none', duration: 1 },
+        0
+      );
+
+
+
+
+
+      // D. Scroll hint fades away
+      heroTimeline.to('#hero-scroll-hint', { opacity: 0, y: 10, duration: 0.15 }, 0.05);
+    }
+
+    // In-page smooth link navigation with header offset
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#' || !href) return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          const headerOffset = 96; // 24rem = 96px header height
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.scrollY - headerOffset;
+  
+          window.scrollTo({
+               top: offsetPosition,
+               behavior: "smooth"
+          });
+        }
+      });
+    });
+
+    // Close modals on Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        if (typeof closeAuthModal === 'function') closeAuthModal();
+        if (typeof closePortalDashboard === 'function') closePortalDashboard();
+        if (typeof closeLetterheadModal === 'function') closeLetterheadModal();
+        if (typeof closeQuotationEditorModal === 'function') closeQuotationEditorModal();
+      }
+    });
+  </script>
+  <!-- Scroll Animation Script -->
+  <script src="script.js"></script>
+</body></html>
