@@ -61,14 +61,16 @@ window.addEventListener('scroll', () => {
 });
 
 // Use requestAnimationFrame for smooth scrubbing
+let lastSetTime = -1;
 function renderLoop() {
     if (isVideoLoaded && !isNaN(targetTime)) {
-        // Simple easing for smoother scrubbing
-        currentTime += (targetTime - currentTime) * 0.1;
+        // Much faster easing to reach target quicker and stop updating
+        currentTime += (targetTime - currentTime) * 0.5;
         
-        // Only update if there is a meaningful difference
-        if (Math.abs(currentTime - video.currentTime) > 0.01) {
+        // Only update if there is a significant difference (prevents micro-stutter and decoder overload)
+        if (Math.abs(currentTime - lastSetTime) > 0.04) {
             video.currentTime = currentTime;
+            lastSetTime = currentTime;
         }
     }
     requestAnimationFrame(renderLoop);
