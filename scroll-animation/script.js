@@ -19,10 +19,12 @@ for (let i = 0; i < frameCount; i++) {
     img.src = `/frames/frame_${paddedIndex}.jpg`;
     img.onload = () => {
         imagesLoaded++;
-        if (imagesLoaded === 1) {
-            // Draw first frame as soon as it loads
-            renderFrame(0);
+        
+        // If this specific image is the one we are currently supposed to be showing, render it now!
+        if (i === currentFrameIndex) {
+            renderFrame(i);
         }
+        
         if (imagesLoaded === frameCount) {
             isFullyLoaded = true;
         }
