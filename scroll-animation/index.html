@@ -131,7 +131,7 @@
     }
   </style>
 </head>
-<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 font-sans antialiased transition-colors duration-300 selection:bg-[#8C6239] selection:text-white">
+<body class="bg-slate-50 text-slate-900 font-sans antialiased transition-colors duration-300 selection:bg-[#8C6239] selection:text-white">
   <!-- ========================================================================= -->
   <!-- 1. STICKY HEADER (Clean & Uncluttered Navigation)                         -->
   <!-- ========================================================================= -->
@@ -166,19 +166,15 @@
       <!-- Primary actions: Portal Login and Contact -->
       <div class="flex items-center gap-2.5 sm:gap-3 shrink-0">
         
-        <!-- Dark Mode Toggle -->
-        <button id="theme-toggle" class="p-2 sm:p-2.5 rounded-full bg-slate-800/50 hover:bg-slate-800 dark:bg-white/10 dark:hover:bg-white/20 text-[#E6CBA8] transition-colors" aria-label="Toggle Dark Mode">
-          <i id="theme-icon-light" data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
-          <i id="theme-icon-dark" data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
-        </button>
 
-        <a href="#contact" class="inline-flex items-center gap-2 px-3 py-2 sm:px-5 sm:py-2.5 bg-slate-900 dark:bg-white hover:bg-slate-800 dark:hover:bg-slate-200 text-white dark:text-slate-900 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm transition-all cursor-pointer">
-          <i data-lucide="phone" class="w-3.5 h-3.5 text-[#E6CBA8] dark:text-[#8C6239] shrink-0"></i>
+
+        <a href="#contact" class="inline-flex items-center gap-2 px-3 py-2 sm:px-5 sm:py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm transition-all cursor-pointer">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-[#E6CBA8] shrink-0"></i>
           <span class="hidden sm:inline">Contact Us</span>
         </a>
 
         <!-- Mobile Navigation Toggle -->
-        <button onclick="toggleMobileNav()" class="lg:hidden p-2 text-white hover:text-[#E6CBA8] rounded-lg transition-colors" aria-label="Toggle navigation menu">
+        <button onclick="toggleMobileNav()" class="lg:hidden p-2 text-slate-700 hover:text-slate-900 rounded-lg hover:bg-slate-200/50 transition-colors" aria-label="Toggle navigation menu">
           <i data-lucide="menu" class="w-5 h-5"></i>
         </button>
       </div>
@@ -235,9 +231,9 @@
   <!-- ========================================================================= -->
   <!-- 3.5 INTRODUCTION TEXT & CTA                                               -->
   <!-- ========================================================================= -->
-  <section class="relative z-20 bg-slate-50 dark:bg-slate-950 py-16 text-center px-4 sm:px-8 border-b border-slate-200 dark:border-slate-800">
+  <section class="relative z-20 bg-slate-50 py-16 text-center px-4 sm:px-8 border-b border-slate-200">
     <div class="max-w-4xl mx-auto flex flex-col items-center">
-      <h2 class="text-2xl sm:text-3xl md:text-4xl text-slate-900 dark:text-white font-serif mb-10 font-black leading-tight text-balance tracking-tight">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl text-slate-900 font-serif mb-10 font-black leading-tight text-balance tracking-tight">
         Crafting Vadodara’s Finest Luxury Residences with 30 Years of Engineering Precision.
       </h2>
 
@@ -246,7 +242,7 @@
           <span>Explore Portfolio &amp; Works</span>
           <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </a>
-        <a href="#contact" class="px-8 py-4 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-100 text-xs sm:text-sm uppercase tracking-widest font-semibold rounded-full hover:border-slate-900 dark:hover:border-slate-300 transition-all">
+        <a href="#contact" class="px-8 py-4 bg-white border border-slate-300 text-slate-800 text-xs sm:text-sm uppercase tracking-widest font-semibold rounded-full hover:border-slate-900 transition-all">
           Inquire for Home Building
         </a>
       </div>
@@ -256,54 +252,54 @@
   <!-- ========================================================================= -->
   <!-- 4. CREDIBILITY & METRICS BAR (4-Column Stat Bar)                          -->
   <!-- ========================================================================= -->
-  <section class="relative z-20 bg-slate-100 dark:bg-slate-900 border-y border-slate-200 dark:border-slate-800 py-12">
+  <section class="relative z-20 bg-slate-100 border-y border-slate-200 py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0 divide-y md:divide-y-0 md:divide-x divide-slate-200">
         
         <div class="flex flex-col items-center text-center px-4 pt-4 md:pt-0">
-          <div class="text-4xl sm:text-5xl font-serif font-bold text-slate-900 dark:text-white tabular-nums">
+          <div class="text-4xl sm:text-5xl font-serif font-bold text-slate-900 tabular-nums">
             30<span class="text-[#D4A373]">+</span>
           </div>
-          <div class="text-xs uppercase tracking-widest font-mono text-slate-600 dark:text-slate-300 mt-2 font-bold">
+          <div class="text-xs uppercase tracking-widest font-mono text-slate-600 mt-2 font-bold">
             Years Experience
           </div>
-          <div class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
+          <div class="text-[11px] text-slate-500 mt-1">
             Engineers &amp; Home Builders Legacy
           </div>
         </div>
 
         <div class="flex flex-col items-center text-center px-4 pt-4 md:pt-0">
-          <div class="text-4xl sm:text-5xl font-serif font-bold text-slate-900 dark:text-white tabular-nums">
+          <div class="text-4xl sm:text-5xl font-serif font-bold text-slate-900 tabular-nums">
             180<span class="text-[#C49A6C]">+</span>
           </div>
-          <div class="text-xs uppercase tracking-widest font-mono text-slate-600 dark:text-slate-300 mt-2 font-bold">
+          <div class="text-xs uppercase tracking-widest font-mono text-slate-600 mt-2 font-bold">
             Delivered Builds
           </div>
-          <div class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
+          <div class="text-[11px] text-slate-500 mt-1">
             Luxury Bungalows &amp; Commercial Builds
           </div>
         </div>
 
         <div class="flex flex-col items-center text-center px-4 pt-4 md:pt-0">
-          <div class="text-4xl sm:text-5xl font-serif font-bold text-slate-900 dark:text-white tabular-nums">
+          <div class="text-4xl sm:text-5xl font-serif font-bold text-slate-900 tabular-nums">
             100<span class="text-[#C49A6C]">%</span>
           </div>
-          <div class="text-xs uppercase tracking-widest font-mono text-slate-600 dark:text-slate-300 mt-2 font-bold">
+          <div class="text-xs uppercase tracking-widest font-mono text-slate-600 mt-2 font-bold">
             Drawing Compliance
           </div>
-          <div class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
+          <div class="text-[11px] text-slate-500 mt-1">
             Architectural &amp; Structural Standards
           </div>
         </div>
 
         <div class="flex flex-col items-center text-center px-4 pt-4 md:pt-0">
-          <div class="text-4xl sm:text-5xl font-serif font-bold text-slate-900 dark:text-white tabular-nums">
+          <div class="text-4xl sm:text-5xl font-serif font-bold text-slate-900 tabular-nums">
             250<span class="text-[#8C6239]">+</span>
           </div>
-          <div class="text-xs uppercase tracking-widest font-mono text-slate-600 dark:text-slate-300 mt-2 font-bold">
+          <div class="text-xs uppercase tracking-widest font-mono text-slate-600 mt-2 font-bold">
             Homes &amp; Projects
           </div>
-          <div class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
+          <div class="text-[11px] text-slate-500 mt-1">
             Manjalpur, Makarpura &amp; Akota
           </div>
         </div>
@@ -315,13 +311,13 @@
     <!-- ========================================================================= -->
   <!-- 5. SELECTED PROJECTS SHOWCASE                                             -->
   <!-- ========================================================================= -->
-  <section id="projects" class="py-24 bg-slate-100 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+  <section id="projects" class="py-24 bg-slate-100 border-t border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
         <div>
-          <span class="text-xs font-mono uppercase tracking-widest text-slate-500 dark:text-slate-400 font-bold block mb-2">Selected Works</span>
-          <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-slate-900 dark:text-white">
+          <span class="text-xs font-mono uppercase tracking-widest text-slate-500 font-bold block mb-2">Selected Works</span>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-slate-900">
             Featured Homes &amp; Commercial Builds.
           </h2>
         </div>
@@ -337,7 +333,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         
         <!-- Project 1: Manjalpur Luxury Residence -->
-        <div class="group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm transition-all hover:shadow-md">
+        <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm transition-all hover:shadow-md">
           <div class="relative aspect-[16/10] bg-slate-300 overflow-hidden">
             <img src="house.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80'" alt="Manjalpur Luxury Residence" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
@@ -354,17 +350,17 @@
           </div>
           <div class="p-6 flex items-center justify-between">
             <div>
-              <div class="text-xs text-slate-500 dark:text-slate-400">4,850 S. FT Ground + 2 luxury home with earthquake-resistant RCC frame and double-coat plaster.</div>
+              <div class="text-xs text-slate-500">4,850 S. FT Ground + 2 luxury home with earthquake-resistant RCC frame and double-coat plaster.</div>
               <div class="text-xs font-mono text-[#C49A6C] font-bold mt-1">Client: Rajeshbhai Patel &middot; Status: Handed Over</div>
             </div>
-            <a href="#contact" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-900 group-hover:bg-[#8C6239] group-hover:text-white flex items-center justify-center transition-colors" title="Contact about similar project">
+            <a href="#contact" class="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-[#8C6239] group-hover:text-white flex items-center justify-center transition-colors" title="Contact about similar project">
               <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
             </a>
           </div>
         </div>
 
         <!-- Project 2: Akota Commercial Arcade -->
-        <div class="group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm transition-all hover:shadow-md">
+        <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm transition-all hover:shadow-md">
           <div class="relative aspect-[16/10] bg-slate-300 overflow-hidden">
             <img src="project_lakeview.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80'" alt="Commercial Arcade" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
@@ -381,10 +377,10 @@
           </div>
           <div class="p-6 flex items-center justify-between">
             <div>
-              <div class="text-xs text-slate-500 dark:text-slate-400">16,500 S. FT multi-storey commercial complex with heavy RCC columns, premium elevation, and basement parking.</div>
+              <div class="text-xs text-slate-500">16,500 S. FT multi-storey commercial complex with heavy RCC columns, premium elevation, and basement parking.</div>
               <div class="text-xs font-mono text-[#C49A6C] font-bold mt-1">Client: Jitubhai Patel &middot; Status: 85% Complete</div>
             </div>
-            <a href="#contact" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-900 group-hover:bg-[#8C6239] group-hover:text-white flex items-center justify-center transition-colors" title="Contact about similar project">
+            <a href="#contact" class="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-[#8C6239] group-hover:text-white flex items-center justify-center transition-colors" title="Contact about similar project">
               <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
             </a>
           </div>
@@ -398,86 +394,86 @@
 <!-- ========================================================================= -->
   <!-- 6. SERVICES & CAPABILITIES                                                -->
   <!-- ========================================================================= -->
-  <section id="services" class="py-24 bg-slate-50 dark:bg-slate-950">
+  <section id="services" class="py-24 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-slate-200 dark:border-slate-800">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-slate-200">
         <div>
           <span class="text-xs font-mono uppercase tracking-widest text-[#C49A6C] font-bold block mb-2">Our Capabilities</span>
-          <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-slate-900 dark:text-white">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-slate-900">
             Disciplined Home Building &amp; Commercial Contracting.
           </h2>
         </div>
-        <p class="mt-4 md:mt-0 text-sm text-slate-600 dark:text-slate-300 max-w-md font-sans leading-relaxed">
+        <p class="mt-4 md:mt-0 text-sm text-slate-600 max-w-md font-sans leading-relaxed">
           Led by Er. Ajay H. Shah (B.E. Civil). Single-source accountability for custom residential homes, luxury bungalows, duplexes, and commercial complexes across Vadodara.
         </p>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         
-        <div class="p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-900 dark:hover:border-slate-300 transition-all flex flex-col justify-between hover:shadow-lg">
+        <div class="p-8 rounded-2xl bg-white border border-slate-200 hover:border-slate-900 transition-all flex flex-col justify-between hover:shadow-lg">
           <div>
             <div class="w-12 h-12 rounded-xl bg-[#F5E6D3] text-[#8C6239] flex items-center justify-center mb-6">
               <i data-lucide="home" class="w-6 h-6"></i>
             </div>
             <div class="text-xs font-mono uppercase tracking-widest text-slate-400 mb-2">01 / RESIDENTIAL</div>
-            <h3 class="text-xl font-serif font-bold text-slate-900 dark:text-white mb-3">Custom Homes &amp; Flats</h3>
-            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+            <h3 class="text-xl font-serif font-bold text-slate-900 mb-3">Custom Homes &amp; Flats</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
               Turnkey residential construction from foundation to final finish. We build luxury bungalows, modern duplexes, and multi-family residential flats tailored to your lifestyle.
             </p>
           </div>
-          <div class="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400">
+          <div class="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between text-xs font-mono text-slate-500">
             <span>Bungalows &middot; Apartments</span>
             <i data-lucide="arrow-right" class="w-4 h-4"></i>
           </div>
         </div>
 
-        <div class="p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-900 dark:hover:border-slate-300 transition-all flex flex-col justify-between hover:shadow-lg">
+        <div class="p-8 rounded-2xl bg-white border border-slate-200 hover:border-slate-900 transition-all flex flex-col justify-between hover:shadow-lg">
           <div>
             <div class="w-12 h-12 rounded-xl bg-[#F5E6D3] text-[#8C6239] flex items-center justify-center mb-6">
               <i data-lucide="building-2" class="w-6 h-6"></i>
             </div>
             <div class="text-xs font-mono uppercase tracking-widest text-slate-400 mb-2">02 / COMMERCIAL</div>
-            <h3 class="text-xl font-serif font-bold text-slate-900 dark:text-white mb-3">Commercial Complexes</h3>
-            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+            <h3 class="text-xl font-serif font-bold text-slate-900 mb-3">Commercial Complexes</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
               Multi-storey commercial office buildings, retail showrooms, and industrial structures engineered with high-load RCC columns and flexible open floor spans.
             </p>
           </div>
-          <div class="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400">
+          <div class="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between text-xs font-mono text-slate-500">
             <span>Offices &middot; Showrooms</span>
             <i data-lucide="arrow-right" class="w-4 h-4"></i>
           </div>
         </div>
 
-        <div class="p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-900 dark:hover:border-slate-300 transition-all flex flex-col justify-between hover:shadow-lg">
+        <div class="p-8 rounded-2xl bg-white border border-slate-200 hover:border-slate-900 transition-all flex flex-col justify-between hover:shadow-lg">
           <div>
             <div class="w-12 h-12 rounded-xl bg-[#F5E6D3] text-[#8C6239] flex items-center justify-center mb-6">
               <i data-lucide="store" class="w-6 h-6"></i>
             </div>
             <div class="text-xs font-mono uppercase tracking-widest text-slate-400 mb-2">03 / RENOVATION</div>
-            <h3 class="text-xl font-serif font-bold text-slate-900 dark:text-white mb-3">Shops &amp; Interior Renovation</h3>
-            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+            <h3 class="text-xl font-serif font-bold text-slate-900 mb-3">Shops &amp; Interior Renovation</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
               Complete structural remodeling and aesthetic upgrades for retail shops, storefronts, and commercial interiors to modernize your business space.
             </p>
           </div>
-          <div class="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400">
+          <div class="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between text-xs font-mono text-slate-500">
             <span>Retail &middot; Fit-outs</span>
             <i data-lucide="arrow-right" class="w-4 h-4"></i>
           </div>
         </div>
 
-        <div class="p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-900 dark:hover:border-slate-300 transition-all flex flex-col justify-between hover:shadow-lg">
+        <div class="p-8 rounded-2xl bg-white border border-slate-200 hover:border-slate-900 transition-all flex flex-col justify-between hover:shadow-lg">
           <div>
             <div class="w-12 h-12 rounded-xl bg-[#F5E6D3] text-[#8C6239] flex items-center justify-center mb-6">
               <i data-lucide="hammer" class="w-6 h-6"></i>
             </div>
             <div class="text-xs font-mono uppercase tracking-widest text-slate-400 mb-2">04 / REBUILT</div>
-            <h3 class="text-xl font-serif font-bold text-slate-900 dark:text-white mb-3">Rebuilding &amp; Reconstruction</h3>
-            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+            <h3 class="text-xl font-serif font-bold text-slate-900 mb-3">Rebuilding &amp; Reconstruction</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
               Safe demolition and full-scale reconstruction of aging properties. We transform old structures into modern, highly-engineered safe havens.
             </p>
           </div>
-          <div class="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400">
+          <div class="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between text-xs font-mono text-slate-500">
             <span>Structural Upgrades</span>
             <i data-lucide="arrow-right" class="w-4 h-4"></i>
           </div>
@@ -491,68 +487,68 @@
   <!-- ========================================================================= -->
   <!-- 7. OUR 4-STAGE HOME & COMMERCIAL BUILDING PROCESS                         -->
   <!-- ========================================================================= -->
-  <section id="process" class="py-24 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+  <section id="process" class="py-24 bg-white border-t border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-16">
         <span class="text-xs font-mono uppercase tracking-widest text-[#C49A6C] font-bold block mb-2">Systematic Execution</span>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-slate-900 dark:text-white">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-slate-900">
           Our 4-Stage Home &amp; Commercial Building Process.
         </h2>
-        <p class="text-sm text-slate-600 dark:text-slate-300 mt-4 leading-relaxed font-sans">
+        <p class="text-sm text-slate-600 mt-4 leading-relaxed font-sans">
           From initial blueprint study to turnkey key handover, every milestone is supervised by Er. Ajay H. Shah with transparent rate calculations and structural rigor.
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
         
-        <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 relative flex flex-col justify-between">
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 relative flex flex-col justify-between">
           <div>
             <div class="text-2xl font-serif font-black text-[#C49A6C] mb-3">01</div>
-            <h4 class="font-bold text-slate-900 dark:text-white text-base mb-2">Soil Survey &amp; Foundation</h4>
-            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+            <h4 class="font-bold text-slate-900 text-base mb-2">Soil Survey &amp; Foundation</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
               Thorough site inspection across Manjalpur, Akota, or Makarpura. Soil bearing testing, 2.1M depth footing excavation, and anti-termite treatment.
             </p>
           </div>
-          <div class="pt-4 mt-4 border-t border-slate-200 dark:border-slate-800 text-[11px] font-mono text-slate-500 dark:text-slate-400 font-bold">
+          <div class="pt-4 mt-4 border-t border-slate-200 text-[11px] font-mono text-slate-500 font-bold">
             STAGE 1: GROUND ZERO
           </div>
         </div>
 
-        <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 relative flex flex-col justify-between">
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 relative flex flex-col justify-between">
           <div>
             <div class="text-2xl font-serif font-black text-[#C49A6C] mb-3">02</div>
-            <h4 class="font-bold text-slate-900 dark:text-white text-base mb-2">Heavy RCC Framing</h4>
-            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+            <h4 class="font-bold text-slate-900 text-base mb-2">Heavy RCC Framing</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
               Casting high-grade columns, plinth beams, and slabs using certified UltraTech concrete and Tata Tiscon Fe 550D TMT steel with strict curing cycles.
             </p>
           </div>
-          <div class="pt-4 mt-4 border-t border-slate-200 dark:border-slate-800 text-[11px] font-mono text-slate-500 dark:text-slate-400 font-bold">
+          <div class="pt-4 mt-4 border-t border-slate-200 text-[11px] font-mono text-slate-500 font-bold">
             STAGE 2: STRUCTURAL FRAME
           </div>
         </div>
 
-        <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 relative flex flex-col justify-between">
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 relative flex flex-col justify-between">
           <div>
             <div class="text-2xl font-serif font-black text-[#C49A6C] mb-3">03</div>
-            <h4 class="font-bold text-slate-900 dark:text-white text-base mb-2">Masonry &amp; Plastering</h4>
-            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+            <h4 class="font-bold text-slate-900 text-base mb-2">Masonry &amp; Plastering</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
               Precision red brick or AAC block masonry, electrical &amp; plumbing conduit embedding, and double-coat sand face exterior plaster finish.
             </p>
           </div>
-          <div class="pt-4 mt-4 border-t border-slate-200 dark:border-slate-800 text-[11px] font-mono text-slate-500 dark:text-slate-400 font-bold">
+          <div class="pt-4 mt-4 border-t border-slate-200 text-[11px] font-mono text-slate-500 font-bold">
             STAGE 3: CIVIL FINISHING
           </div>
         </div>
 
-        <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 relative flex flex-col justify-between">
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 relative flex flex-col justify-between">
           <div>
             <div class="text-2xl font-serif font-black text-[#C49A6C] mb-3">04</div>
-            <h4 class="font-bold text-slate-900 dark:text-white text-base mb-2">Waterproofing &amp; Handover</h4>
-            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+            <h4 class="font-bold text-slate-900 text-base mb-2">Waterproofing &amp; Handover</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
               Multi-layer terrace and toilet waterproofing, quality audit checklist, itemized final bill verification, and joyful turnkey home handover.
             </p>
           </div>
-          <div class="pt-4 mt-4 border-t border-slate-200 dark:border-slate-800 text-[11px] font-mono text-slate-500 dark:text-slate-400 font-bold">
+          <div class="pt-4 mt-4 border-t border-slate-200 text-[11px] font-mono text-slate-500 font-bold">
             STAGE 4: TURNKEY DELIVERY
           </div>
         </div>
@@ -794,26 +790,6 @@
       // D. Scroll hint fades away
       heroTimeline.to('#hero-scroll-hint', { opacity: 0, y: 10, duration: 0.15 }, 0.05);
     }
-
-    // Dark Mode Toggle Logic
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    
-    // Check initial preference
-    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-    } else {
-        document.documentElement.classList.remove('dark');
-    }
-
-    themeToggleBtn.addEventListener('click', function() {
-        if (document.documentElement.classList.contains('dark')) {
-            document.documentElement.classList.remove('dark');
-            localStorage.setItem('theme', 'light');
-        } else {
-            document.documentElement.classList.add('dark');
-            localStorage.setItem('theme', 'dark');
-        }
-    });
 
     // In-page smooth link navigation with header offset
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
